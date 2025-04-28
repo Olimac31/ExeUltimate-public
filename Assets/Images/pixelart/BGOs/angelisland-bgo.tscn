@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://Assets/Images/pixelart/BGOs/angelisland-bgo-resource.tres" type="TileSet" id=1]
+
+[node name="angelisland-bgo" type="TileMap"]
+tile_set = ExtResource( 1 )
+cell_size = Vector2( 32, 32 )
+cell_quadrant_size = 32
+format = 1
+tile_data = PoolIntArray( 0, 0, 0 )

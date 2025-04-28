@@ -1,0 +1,58 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Assets/Fonts/sonic-hud-font.tres" type="DynamicFont" id=1]
+[ext_resource path="res://Scenes/reboot-message.gd" type="Script" id=2]
+
+[node name="will-reboot" type="CanvasLayer"]
+layer = 96
+script = ExtResource( 2 )
+
+[node name="ColorRect" type="ColorRect" parent="."]
+modulate = Color( 0, 0, 0, 0.705882 )
+margin_left = 256.0
+margin_top = 256.0
+margin_right = 1024.0
+margin_bottom = 448.0
+mouse_filter = 2
+
+[node name="text-back" type="RichTextLabel" parent="."]
+modulate = Color( 1, 1, 1, 0.25098 )
+margin_left = 324.0
+margin_top = 300.0
+margin_right = 964.0
+margin_bottom = 428.0
+mouse_filter = 2
+custom_fonts/normal_font = ExtResource( 1 )
+bbcode_enabled = true
+bbcode_text = "
+[center]A [color=lime]reboot[/color] is needed to apply the changes
+
+[wave][color=gray]Closing app...[/color][/wave]"
+text = "
+A reboot is needed to apply the changes
+
+Closing app..."
+
+[node name="text-top" type="RichTextLabel" parent="."]
+margin_left = 320.0
+margin_top = 296.0
+margin_right = 960.0
+margin_bottom = 424.0
+mouse_filter = 2
+custom_fonts/normal_font = ExtResource( 1 )
+bbcode_enabled = true
+bbcode_text = "
+[center]A [color=lime]reboot[/color] is needed to apply the changes
+
+[wave][color=gray]Closing app...[/color][/wave]"
+text = "
+A reboot is needed to apply the changes
+
+Closing app..."
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 3.0
+one_shot = true
+autostart = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]

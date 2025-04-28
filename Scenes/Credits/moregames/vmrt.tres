@@ -1,0 +1,11 @@
+[gd_resource type="Resource" load_steps=2 format=2]
+
+[ext_resource path="res://Scripts/MoreGamesMetadata.gd" type="Script" id=1]
+
+[resource]
+script = ExtResource( 1 )
+game_name = "Vs. Mouse: Rookies Edition"
+description = "Vs. Mouse Rookies Edition is a retake of Vs. Mouse made by Rookies Team (some of its members worked here too!)"
+icon_name = "vmrt"
+interact_link = "https://gamebanana.com/mods/583084"
+game_color = Color( 1, 0.184314, 0.184314, 1 )

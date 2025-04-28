@@ -1,0 +1,19 @@
+[gd_resource type="Resource" load_steps=2 format=2]
+
+[ext_resource path="res://Scripts/CreditsMetadata.gd" type="Script" id=1]
+
+[resource]
+script = ExtResource( 1 )
+person_name = "PurbleBun"
+roles = "Artist, Concept Artist, OG Creator of the mod"
+description = "Hi! I'm PurbleBun, formerly known as \"Polygon64.\"
+
+I used to be the director of this project, but honestly, I didn’t do a great job. I was pretty inexperienced, and it was obvious I wasn’t ready to handle such a project. My contributions were mostly early ideas and concepts [color=gray](and, yeah, most of them weren’t that great).[/color]
+
+That’s why I’m so happy to see Vs. Sonic.exe Ultimate in better hands now! I really hope I can keep contributing to the project and help it grow even more in the future.
+
+and check out [color=red]SML: Vróchos![/color] [color=gray](don’t ask about Evergreen or the Untitled SMG4 Mod those are fucking [color=red][shake level=10]d e a d.[/shake][color=gray])"
+icon_name = "purble"
+open_link_on_interact = true
+interact_link = "https://x.com/PurbleBun"
+user_color = Color( 0.384314, 0.164706, 1, 1 )

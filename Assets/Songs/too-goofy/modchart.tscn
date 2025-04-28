@@ -1,0 +1,24 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://Assets/Songs/too-goofy/modchart.gd" type="Script" id=1]
+[ext_resource path="res://Scripts/Modchart Scripts/transitionUtilities.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Scripts/Modchart Scripts/cameraZooms.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Scripts/Modchart Scripts/healthUtilities.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Scripts/Modchart Scripts/exehud.tscn" type="PackedScene" id=6]
+
+[node name="modchart" type="Node"]
+script = ExtResource( 1 )
+flash_colors = [ Color( 1, 1, 1, 1 ), Color( 0, 0, 0, 1 ) ]
+
+[node name="cameraZooms" parent="." instance=ExtResource( 3 )]
+arrayZooms = [ Vector2( 0, 1.2 ), Vector2( 64, 1.1 ), Vector2( 96, 1 ), Vector2( 112, 0.95 ), Vector2( 116, 0.9 ), Vector2( 120, 0.85 ), Vector2( 124, 0.9 ), Vector2( 128, 1.1 ), Vector2( 140, 0.95 ), Vector2( 152, 1.1 ), Vector2( 312, 1 ), Vector2( 376, 1.1 ), Vector2( 556, 1 ), Vector2( 999, 1 ) ]
+is_olimac_camera = true
+
+[node name="transitionTools" parent="." instance=ExtResource( 2 )]
+
+[node name="healthUtilities" parent="." instance=ExtResource( 4 )]
+health_drain_minimum = 1.0
+health_drain_damage = 0.025
+health_drain_type = "poison"
+
+[node name="exehud" parent="." instance=ExtResource( 6 )]

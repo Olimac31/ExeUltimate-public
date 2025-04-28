@@ -1,0 +1,885 @@
+[gd_scene load_steps=26 format=2]
+
+[ext_resource path="res://Scripts/UI/Options.gd" type="Script" id=1]
+[ext_resource path="res://Scripts/Bool Option.gd" type="Script" id=2]
+[ext_resource path="res://Assets/Images/UI/menuDesat.png" type="Texture" id=3]
+[ext_resource path="res://Assets/Images/UI/options menu box.png" type="Texture" id=4]
+[ext_resource path="res://Assets/Images/UI/Options/checkbox.res" type="SpriteFrames" id=5]
+[ext_resource path="res://Scripts/Scene Option.gd" type="Script" id=6]
+[ext_resource path="res://Scripts/Offset Option.gd" type="Script" id=7]
+[ext_resource path="res://Assets/Fonts/sonic-hud-font.tres" type="DynamicFont" id=8]
+[ext_resource path="res://Scripts/Tool Option.gd" type="Script" id=9]
+[ext_resource path="res://Assets/Shaders/blur.gdshader" type="Shader" id=10]
+[ext_resource path="res://Scenes/Options Side Bar.gd" type="Script" id=11]
+[ext_resource path="res://Scripts/Array Option.gd" type="Script" id=12]
+[ext_resource path="res://Scripts/Scroll Speed Option.gd" type="Script" id=13]
+[ext_resource path="res://Scripts/FPS Cap Option.gd" type="Script" id=14]
+[ext_resource path="res://Scenes/OptionsController.gd" type="Script" id=15]
+[ext_resource path="res://Scripts/Brightness_Option.gd" type="Script" id=16]
+[ext_resource path="res://Assets/Images/UI/brightness-preview-img.png" type="Texture" id=17]
+[ext_resource path="res://Assets/Images/UI/brightness-preview-img2.png" type="Texture" id=18]
+
+[sub_resource type="ShaderMaterial" id=5]
+shader = ExtResource( 10 )
+shader_param/blur_amount = 3.0
+shader_param/mix_amount = 0.25
+shader_param/color_over = Color( 0, 0, 0, 1 )
+
+[sub_resource type="SpriteFrames" id=8]
+animations = [ {
+"frames": [ ExtResource( 17 ) ],
+"loop": true,
+"name": "toogoofy-0",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 18 ) ],
+"loop": true,
+"name": "toogoofy-1",
+"speed": 5.0
+} ]
+
+[sub_resource type="Animation" id=6]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("ColorRect:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ) ]
+}
+
+[sub_resource type="Animation" id=7]
+resource_name = "loop"
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("ColorRect:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5, 1 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0.772549 ), Color( 1, 1, 1, 1 ) ]
+}
+
+[sub_resource type="Animation" id=2]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:offset")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 0, 800 ) ]
+}
+
+[sub_resource type="Animation" id=3]
+resource_name = "close"
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:offset")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 0.176777, 0.120742 ),
+"update": 0,
+"values": [ Vector2( 0, 0 ), Vector2( 0, 700 ) ]
+}
+
+[sub_resource type="Animation" id=1]
+resource_name = "open"
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:offset")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 0.176777, 1 ),
+"update": 0,
+"values": [ Vector2( 0, 700 ), Vector2( 0, 0 ) ]
+}
+
+[node name="Options Menu" type="CanvasLayer"]
+layer = 9
+offset = Vector2( 0, 800 )
+transform = Transform2D( 1, 0, 0, 1, 0, 800 )
+script = ExtResource( 15 )
+
+[node name="blurCanvas" type="CanvasLayer" parent="."]
+layer = 8
+visible = false
+
+[node name="BGBlur" type="ColorRect" parent="blurCanvas"]
+material = SubResource( 5 )
+margin_right = 1322.0
+margin_bottom = 720.0
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+layer = -1
+
+[node name="BG" type="Node2D" parent="CanvasLayer"]
+visible = false
+
+[node name="Magenta" type="Sprite" parent="CanvasLayer/BG"]
+modulate = Color( 0.917647, 0.443137, 0.992157, 1 )
+position = Vector2( -118, -60 )
+scale = Vector2( 1.095, 1.095 )
+texture = ExtResource( 3 )
+centered = false
+
+[node name="Options" type="Node2D" parent="."]
+position = Vector2( 158, -33 )
+script = ExtResource( 1 )
+unselected_color = Color( 0.470588, 0.470588, 0.470588, 1 )
+unselected_color_darker = Color( 0.360784, 0.360784, 0.360784, 1 )
+
+[node name="Side Bar" type="Node2D" parent="."]
+script = ExtResource( 11 )
+
+[node name="BG" type="ColorRect" parent="Side Bar"]
+visible = false
+margin_right = 208.0
+margin_bottom = 720.0
+color = Color( 0, 0, 0, 0.6 )
+
+[node name="Top" type="ColorRect" parent="Side Bar"]
+visible = false
+margin_left = 208.0
+margin_right = 1280.0
+margin_bottom = 42.0
+color = Color( 0, 0, 0, 0.6 )
+
+[node name="Option Description" type="Label" parent="Side Bar"]
+modulate = Color( 0.552941, 0.552941, 0.552941, 1 )
+margin_left = 208.0
+margin_top = 96.0
+margin_right = 1072.0
+margin_bottom = 160.0
+custom_fonts/font = ExtResource( 8 )
+text = "Option Description Goes Here"
+align = 1
+valign = 1
+autowrap = true
+
+[node name="Esc Description" type="Label" parent="Side Bar"]
+margin_left = 192.0
+margin_top = 656.0
+margin_right = 1088.0
+margin_bottom = 696.0
+custom_fonts/font = ExtResource( 8 )
+text = "Press [ESC] to close this menu."
+align = 1
+valign = 1
+autowrap = true
+
+[node name="Tabs" type="Node2D" parent="Side Bar"]
+position = Vector2( 104, 16 )
+
+[node name="Gameplay" type="Label" parent="Side Bar/Tabs"]
+margin_left = 136.0
+margin_top = 152.0
+margin_right = 288.0
+margin_bottom = 181.0
+custom_fonts/font = ExtResource( 8 )
+text = "Gameplay"
+align = 1
+
+[node name="Binds" type="Node2D" parent="Side Bar/Tabs/Gameplay"]
+visible = false
+position = Vector2( 274, 1453 )
+script = ExtResource( 6 )
+description = "Remap your FNF Keybinds"
+
+[node name="Text" type="RichTextLabel" parent="Side Bar/Tabs/Gameplay/Binds"]
+margin_left = 17.0
+margin_top = 14.0
+margin_right = 300.0
+margin_bottom = 99.0
+rect_clip_content = false
+custom_fonts/normal_font = ExtResource( 8 )
+text = "FNF BINDS"
+scroll_active = false
+
+[node name="Downscroll" type="Node2D" parent="Side Bar/Tabs/Gameplay"]
+visible = false
+position = Vector2( 287, -288 )
+script = ExtResource( 2 )
+description = "Do the arrows scroll down or up?"
+
+[node name="Text" type="RichTextLabel" parent="Side Bar/Tabs/Gameplay/Downscroll"]
+margin_left = 17.0
+margin_top = 14.0
+margin_right = 552.0
+margin_bottom = 104.0
+rect_clip_content = false
+custom_fonts/normal_font = ExtResource( 8 )
+text = "DOWNSCROLL"
+scroll_active = false
+
+[node name="Checkbox" type="AnimatedSprite" parent="Side Bar/Tabs/Gameplay/Downscroll"]
+position = Vector2( 299, 24 )
+frames = ExtResource( 5 )
+animation = "Unchecked"
+playing = true
+
+[node name="Middlescroll" type="Node2D" parent="Side Bar/Tabs/Gameplay"]
+visible = false
+position = Vector2( 285, 212 )
+script = ExtResource( 2 )
+save_name = "middlescroll"
+description = "Are the arrows centered in game?"
+
+[node name="Text" type="RichTextLabel" parent="Side Bar/Tabs/Gameplay/Middlescroll"]
+margin_left = 17.0
+margin_top = 14.0
+margin_right = 850.0
+margin_bottom = 99.0
+rect_clip_content = false
+custom_fonts/normal_font = ExtResource( 8 )
+text = "MIDDLESCROLL"
+scroll_active = false
+
+[node name="Checkbox" type="AnimatedSprite" parent="Side Bar/Tabs/Gameplay/Middlescroll"]
+position = Vector2( 299, 24 )
+frames = ExtResource( 5 )
+animation = "Unchecked"
+playing = true
+
+[node name="Bot" type="Node2D" parent="Side Bar/Tabs/Gameplay"]
+visible = false
+position = Vector2( 285, 116 )
+script = ExtResource( 2 )
+save_name = "bot"
+description = "Plays the song for you."
+
+[node name="Text" type="RichTextLabel" parent="Side Bar/Tabs/Gameplay/Bot"]
+margin_left = 17.0
+margin_top = 14.0
+margin_right = 850.0
+margin_bottom = 99.0
+rect_clip_content = false
+custom_fonts/normal_font = ExtResource( 8 )
+text = "BOT"
+scroll_active = false
+
+[node name="Checkbox" type="AnimatedSprite" parent="Side Bar/Tabs/Gameplay/Bot"]
+position = Vector2( 299, 24 )
+frames = ExtResource( 5 )
+animation = "Unchecked"
+playing = true
+
+[node name="Offset" type="Node2D" parent="Side Bar/Tabs/Gameplay"]
+visible = false
+position = Vector2( 285, 308 )
+script = ExtResource( 7 )
+description = "Offset of the notes (helps with audio delay)"
+
+[node name="Text" type="RichTextLabel" parent="Side Bar/Tabs/Gameplay/Offset"]
+margin_left = 17.0
+margin_top = 14.0
+margin_right = 850.0
+margin_bottom = 99.0
+rect_clip_content = false
+custom_fonts/normal_font = ExtResource( 8 )
+text = "OFFSET: 0"
+scroll_active = false
+
+[node name="Backdrop" type="Node2D" parent="Side Bar/Tabs/Gameplay"]
+visible = false
+position = Vector2( 285, 116 )
+script = ExtResource( 2 )
+save_name = "note_backdrop"
+description = "Toggle a backdrop that appears below notes, making the chart easier to read."
+
+[node name="Text" type="RichTextLabel" parent="Side Bar/Tabs/Gameplay/Backdrop"]
+margin_left = 17.0
+margin_top = 14.0
+margin_right = 850.0
+margin_bottom = 99.0
+rect_clip_content = false
+custom_fonts/normal_font = ExtResource( 8 )
+text = "BACKDROP"
+scroll_active = false
+
+[node name="Checkbox" type="AnimatedSprite" parent="Side Bar/Tabs/Gameplay/Backdrop"]
+position = Vector2( 299, 24 )
+frames = ExtResource( 5 )
+animation = "Unchecked"
+playing = true
+
+[node name="BackdropOpacity" type="Node2D" parent="Side Bar/Tabs/Gameplay"]
+visible = false
+position = Vector2( 285, 400 )
+script = ExtResource( 16 )
+description = "Opacity of the note backdrop."
+save_name = "note_backdrop_opacity"
+display_text = "BACKDROP OPACITY: "
+min_val = 0.1
+max_val = 1.0
+side_bar = NodePath("../../..")
+options_script = NodePath("../../../../Options")
+
+[node name="Text" type="RichTextLabel" parent="Side Bar/Tabs/Gameplay/BackdropOpacity"]
+margin_left = 17.0
+margin_top = 14.0
+margin_right = 850.0
+margin_bottom = 99.0
+rect_clip_content = false
+custom_fonts/normal_font = ExtResource( 8 )
+text = "BACKDROP OPACITY: 1.0"
+scroll_active = false
+
+[node name="Custom Scroll Speed" type="Node2D" parent="Side Bar/Tabs/Gameplay"]
+visible = false
+position = Vector2( 285, 663 )
+script = ExtResource( 2 )
+save_name = "custom_scroll_bool"
+description = "Will the Custom Scroll Speed be used?"
+
+[node name="Text" type="RichTextLabel" parent="Side Bar/Tabs/Gameplay/Custom Scroll Speed"]
+margin_left = 17.0
+margin_top = 14.0
+margin_right = 1152.0
+margin_bottom = 99.0
+rect_clip_content = false
+custom_fonts/normal_font = ExtResource( 8 )
+text = "CUSTOM SCROLL"
+scroll_active = false
+
+[node name="Checkbox" type="AnimatedSprite" parent="Side Bar/Tabs/Gameplay/Custom Scroll Speed"]
+position = Vector2( 299, 24 )
+frames = ExtResource( 5 )
+animation = "Unchecked"
+playing = true
+
+[node name="Scroll Speed" type="Node2D" parent="Side Bar/Tabs/Gameplay"]
+visible = false
+position = Vector2( 285, 308 )
+script = ExtResource( 13 )
+
+[node name="Text" type="RichTextLabel" parent="Side Bar/Tabs/Gameplay/Scroll Speed"]
+margin_left = 17.0
+margin_top = 14.0
+margin_right = 850.0
+margin_bottom = 99.0
+rect_clip_content = false
+custom_fonts/normal_font = ExtResource( 8 )
+text = "SCROLL: 1.0"
+scroll_active = false
+
+[node name="Graphics" type="Label" parent="Side Bar/Tabs"]
+margin_left = 336.0
+margin_top = 152.0
+margin_right = 488.0
+margin_bottom = 181.0
+custom_fonts/font = ExtResource( 8 )
+text = "Graphics"
+align = 1
+
+[node name="Brightness" type="Node2D" parent="Side Bar/Tabs/Graphics"]
+visible = false
+position = Vector2( 85, 400 )
+script = ExtResource( 16 )
+has_image = true
+side_bar = NodePath("../../..")
+options_script = NodePath("../../../../Options")
+
+[node name="Text" type="RichTextLabel" parent="Side Bar/Tabs/Graphics/Brightness"]
+margin_left = 17.0
+margin_top = 14.0
+margin_right = 850.0
+margin_bottom = 99.0
+rect_clip_content = false
+custom_fonts/normal_font = ExtResource( 8 )
+text = "BRIGHTNESS: 1.0"
+scroll_active = false
+
+[node name="Contrast" type="Node2D" parent="Side Bar/Tabs/Graphics"]
+visible = false
+position = Vector2( 85, 400 )
+script = ExtResource( 16 )
+description = "Contrast amount."
+save_name = "contrast"
+display_text = "CONTRAST: "
+has_image = true
+side_bar = NodePath("../../..")
+options_script = NodePath("../../../../Options")
+
+[node name="Text" type="RichTextLabel" parent="Side Bar/Tabs/Graphics/Contrast"]
+margin_left = 17.0
+margin_top = 14.0
+margin_right = 850.0
+margin_bottom = 99.0
+rect_clip_content = false
+custom_fonts/normal_font = ExtResource( 8 )
+text = "CONTRAST: 1.0"
+scroll_active = false
+
+[node name="Scanlines" type="Node2D" parent="Side Bar/Tabs/Graphics"]
+visible = false
+position = Vector2( 285, -228 )
+script = ExtResource( 2 )
+save_name = "scanlines"
+description = "Horizontal scanlines can be toggled."
+
+[node name="Text" type="RichTextLabel" parent="Side Bar/Tabs/Graphics/Scanlines"]
+margin_left = 17.0
+margin_top = 14.0
+margin_right = 794.0
+margin_bottom = 99.0
+rect_clip_content = false
+custom_fonts/normal_font = ExtResource( 8 )
+text = "SCANLINES"
+scroll_active = false
+
+[node name="Checkbox" type="AnimatedSprite" parent="Side Bar/Tabs/Graphics/Scanlines"]
+position = Vector2( 299, 24 )
+frames = ExtResource( 5 )
+animation = "Unchecked"
+playing = true
+
+[node name="Flashing Lights" type="Node2D" parent="Side Bar/Tabs/Graphics"]
+visible = false
+position = Vector2( 285, -228 )
+script = ExtResource( 2 )
+save_name = "flashingLights"
+description = "Disables some flashing lights (doesn't work for all mods)"
+
+[node name="Text" type="RichTextLabel" parent="Side Bar/Tabs/Graphics/Flashing Lights"]
+margin_left = 17.0
+margin_top = 14.0
+margin_right = 794.0
+margin_bottom = 99.0
+rect_clip_content = false
+custom_fonts/normal_font = ExtResource( 8 )
+text = "FLASHING LIGHTS"
+scroll_active = false
+
+[node name="Checkbox" type="AnimatedSprite" parent="Side Bar/Tabs/Graphics/Flashing Lights"]
+position = Vector2( 299, 24 )
+frames = ExtResource( 5 )
+animation = "Unchecked"
+playing = true
+
+[node name="SimpleShaders" type="Node2D" parent="Side Bar/Tabs/Graphics"]
+visible = false
+position = Vector2( 285, 180 )
+script = ExtResource( 2 )
+save_name = "simpleShaders"
+description = "Disabling the simple shaders may improve performance a little bit, at the cost of graphical quality"
+
+[node name="Text" type="RichTextLabel" parent="Side Bar/Tabs/Graphics/SimpleShaders"]
+margin_left = 17.0
+margin_top = 14.0
+margin_right = 794.0
+margin_bottom = 99.0
+rect_clip_content = false
+custom_fonts/normal_font = ExtResource( 8 )
+text = "SIMPLE SHADERS"
+scroll_active = false
+
+[node name="Checkbox" type="AnimatedSprite" parent="Side Bar/Tabs/Graphics/SimpleShaders"]
+position = Vector2( 299, 24 )
+frames = ExtResource( 5 )
+animation = "Unchecked"
+playing = true
+
+[node name="intensiveShaders" type="Node2D" parent="Side Bar/Tabs/Graphics"]
+visible = false
+position = Vector2( 285, 180 )
+script = ExtResource( 2 )
+save_name = "intensiveShaders"
+description = "Disabling Intensive Shaders may improve performance considerably"
+
+[node name="Text" type="RichTextLabel" parent="Side Bar/Tabs/Graphics/intensiveShaders"]
+margin_left = 13.0
+margin_top = 14.0
+margin_right = 998.0
+margin_bottom = 99.0
+rect_clip_content = false
+custom_fonts/normal_font = ExtResource( 8 )
+text = "INTENSE SHADERS"
+scroll_active = false
+
+[node name="Checkbox" type="AnimatedSprite" parent="Side Bar/Tabs/Graphics/intensiveShaders"]
+position = Vector2( 299, 24 )
+frames = ExtResource( 5 )
+animation = "Unchecked"
+playing = true
+
+[node name="ldm" type="Node2D" parent="Side Bar/Tabs/Graphics"]
+visible = false
+position = Vector2( 285, 180 )
+script = ExtResource( 2 )
+save_name = "low_detail_mode"
+description = "Optimizes the game a lot at the cost of graphical fidelity (REQUIRES REBOOT)"
+
+[node name="Text" type="RichTextLabel" parent="Side Bar/Tabs/Graphics/ldm"]
+margin_left = 13.0
+margin_top = 14.0
+margin_right = 998.0
+margin_bottom = 99.0
+rect_clip_content = false
+custom_fonts/normal_font = ExtResource( 8 )
+text = "LOW DETAIL MODE"
+scroll_active = false
+
+[node name="Checkbox" type="AnimatedSprite" parent="Side Bar/Tabs/Graphics/ldm"]
+position = Vector2( 299, 24 )
+frames = ExtResource( 5 )
+animation = "Unchecked"
+playing = true
+
+[node name="Camera Zooms" type="Node2D" parent="Side Bar/Tabs/Graphics"]
+visible = false
+position = Vector2( 285, -125 )
+script = ExtResource( 2 )
+save_name = "cameraZooms"
+description = "Do you want the camera to bounce to the song beat?"
+
+[node name="Text" type="RichTextLabel" parent="Side Bar/Tabs/Graphics/Camera Zooms"]
+margin_left = 17.0
+margin_top = 14.0
+margin_right = 639.0
+margin_bottom = 99.0
+rect_clip_content = false
+custom_fonts/normal_font = ExtResource( 8 )
+text = "CAMERA ZOOMS"
+scroll_active = false
+
+[node name="Checkbox" type="AnimatedSprite" parent="Side Bar/Tabs/Graphics/Camera Zooms"]
+position = Vector2( 299, 24 )
+frames = ExtResource( 5 )
+animation = "Unchecked"
+playing = true
+
+[node name="VSync" type="Node2D" parent="Side Bar/Tabs/Graphics"]
+visible = false
+position = Vector2( 285, 355 )
+script = ExtResource( 2 )
+save_name = "vsync"
+description = "WARNING: Disabling Vsync might dramatically increase GPU usage."
+
+[node name="Text" type="RichTextLabel" parent="Side Bar/Tabs/Graphics/VSync"]
+margin_left = 17.0
+margin_top = 14.0
+margin_right = 850.0
+margin_bottom = 99.0
+rect_clip_content = false
+custom_fonts/normal_font = ExtResource( 8 )
+text = "VSYNC"
+scroll_active = false
+
+[node name="Checkbox" type="AnimatedSprite" parent="Side Bar/Tabs/Graphics/VSync"]
+position = Vector2( 299, 24 )
+frames = ExtResource( 5 )
+animation = "Unchecked"
+playing = true
+
+[node name="Enemy Strum Glow" type="Node2D" parent="Side Bar/Tabs/Graphics"]
+visible = false
+position = Vector2( 285, -25 )
+script = ExtResource( 2 )
+save_name = "opponent_note_glow"
+description = "The opponent's notes glow when they hit a note?"
+
+[node name="Text" type="RichTextLabel" parent="Side Bar/Tabs/Graphics/Enemy Strum Glow"]
+margin_left = 17.0
+margin_top = 14.0
+margin_right = 850.0
+margin_bottom = 99.0
+rect_clip_content = false
+custom_fonts/normal_font = ExtResource( 8 )
+text = "ENEMY STRUM GLOW"
+scroll_active = false
+
+[node name="Checkbox" type="AnimatedSprite" parent="Side Bar/Tabs/Graphics/Enemy Strum Glow"]
+position = Vector2( 299, 24 )
+frames = ExtResource( 5 )
+animation = "Unchecked"
+playing = true
+
+[node name="FPS Cap" type="Node2D" parent="Side Bar/Tabs/Graphics"]
+visible = false
+position = Vector2( 285, 267 )
+script = ExtResource( 14 )
+description = "Cap of the game's framerate."
+
+[node name="Text" type="RichTextLabel" parent="Side Bar/Tabs/Graphics/FPS Cap"]
+margin_left = 17.0
+margin_top = 14.0
+margin_right = 850.0
+margin_bottom = 99.0
+rect_clip_content = false
+custom_fonts/normal_font = ExtResource( 8 )
+text = "FPS CAP: 0"
+scroll_active = false
+
+[node name="Sounds" type="Label" parent="Side Bar/Tabs"]
+margin_left = 584.0
+margin_top = 152.0
+margin_right = 736.0
+margin_bottom = 181.0
+custom_fonts/font = ExtResource( 8 )
+text = "Sounds"
+align = 1
+
+[node name="Hitsounds" type="Node2D" parent="Side Bar/Tabs/Sounds"]
+visible = false
+position = Vector2( 285, 1093 )
+script = ExtResource( 2 )
+save_name = "hitsounds"
+description = "Toggle for hitsounds."
+
+[node name="Text" type="RichTextLabel" parent="Side Bar/Tabs/Sounds/Hitsounds"]
+margin_left = 17.0
+margin_top = 14.0
+margin_right = 1152.0
+margin_bottom = 99.0
+rect_clip_content = false
+custom_fonts/normal_font = ExtResource( 8 )
+text = "HITSOUNDS"
+scroll_active = false
+
+[node name="Checkbox" type="AnimatedSprite" parent="Side Bar/Tabs/Sounds/Hitsounds"]
+position = Vector2( 299, 24 )
+frames = ExtResource( 5 )
+animation = "Unchecked"
+playing = true
+
+[node name="Hitsound" type="Node2D" parent="Side Bar/Tabs/Sounds"]
+visible = false
+position = Vector2( 285, 1293 )
+script = ExtResource( 12 )
+save_name = "hitsound"
+options = [ "A", "B", "C" ]
+description = "The Hitsound to play"
+base_name = "HITSOUND TYPE"
+
+[node name="Text" type="RichTextLabel" parent="Side Bar/Tabs/Sounds/Hitsound"]
+margin_left = 17.0
+margin_top = 14.0
+margin_right = 3717.0
+margin_bottom = 99.0
+rect_clip_content = false
+custom_fonts/normal_font = ExtResource( 8 )
+text = "HITSOUND: OSU MANIA"
+scroll_active = false
+
+[node name="Miss Sounds" type="Node2D" parent="Side Bar/Tabs/Sounds"]
+visible = false
+position = Vector2( 285, 797 )
+script = ExtResource( 2 )
+save_name = "miss_sounds"
+description = "Play sounds when missing notes?"
+
+[node name="Text" type="RichTextLabel" parent="Side Bar/Tabs/Sounds/Miss Sounds"]
+margin_left = 17.0
+margin_top = 14.0
+margin_right = 1152.0
+margin_bottom = 99.0
+rect_clip_content = false
+custom_fonts/normal_font = ExtResource( 8 )
+text = "MISS SOUNDS"
+scroll_active = false
+
+[node name="Checkbox" type="AnimatedSprite" parent="Side Bar/Tabs/Sounds/Miss Sounds"]
+position = Vector2( 299, 24 )
+frames = ExtResource( 5 )
+animation = "Unchecked"
+playing = true
+
+[node name="Misc" type="Label" parent="Side Bar/Tabs"]
+margin_left = 800.0
+margin_top = 152.0
+margin_right = 952.0
+margin_bottom = 181.0
+custom_fonts/font = ExtResource( 8 )
+text = "Misc"
+align = 1
+
+[node name="New Sustain Animations" type="Node2D" parent="Side Bar/Tabs/Misc"]
+visible = false
+position = Vector2( 285, 567 )
+script = ExtResource( 2 )
+save_name = "new_sustain_animations"
+description = "New Sustain Animations (not just a still frame)."
+
+[node name="Text" type="RichTextLabel" parent="Side Bar/Tabs/Misc/New Sustain Animations"]
+margin_left = 17.0
+margin_top = 14.0
+margin_right = 1152.0
+margin_bottom = 99.0
+rect_clip_content = false
+custom_fonts/normal_font = ExtResource( 8 )
+text = "NEW HELD ANIMS"
+scroll_active = false
+
+[node name="Checkbox" type="AnimatedSprite" parent="Side Bar/Tabs/Misc/New Sustain Animations"]
+position = Vector2( 299, 24 )
+frames = ExtResource( 5 )
+animation = "Unchecked"
+playing = true
+
+[node name="FPS Counter" type="Node2D" parent="Side Bar/Tabs/Misc"]
+visible = false
+position = Vector2( 285, 567 )
+script = ExtResource( 2 )
+save_name = "fps_counter"
+description = "Toggles visibility of the FPS counter"
+
+[node name="Text" type="RichTextLabel" parent="Side Bar/Tabs/Misc/FPS Counter"]
+margin_left = 17.0
+margin_top = 14.0
+margin_right = 1152.0
+margin_bottom = 99.0
+rect_clip_content = false
+custom_fonts/normal_font = ExtResource( 8 )
+text = "FPS COUNTER"
+scroll_active = false
+
+[node name="Checkbox" type="AnimatedSprite" parent="Side Bar/Tabs/Misc/FPS Counter"]
+position = Vector2( 299, 24 )
+frames = ExtResource( 5 )
+animation = "Unchecked"
+playing = true
+
+[node name="Debug Menus" type="Node2D" parent="Side Bar/Tabs/Misc"]
+visible = false
+position = Vector2( 285, 375 )
+script = ExtResource( 2 )
+save_name = "debug_menus"
+description = "Whether or not you can access debug menus (aka charter) from the game."
+
+[node name="Text" type="RichTextLabel" parent="Side Bar/Tabs/Misc/Debug Menus"]
+margin_left = 17.0
+margin_top = 14.0
+margin_right = 850.0
+margin_bottom = 99.0
+rect_clip_content = false
+custom_fonts/normal_font = ExtResource( 8 )
+text = "DEBUG MENUS"
+scroll_active = false
+
+[node name="Checkbox" type="AnimatedSprite" parent="Side Bar/Tabs/Misc/Debug Menus"]
+position = Vector2( 299, 24 )
+frames = ExtResource( 5 )
+animation = "Unchecked"
+playing = true
+
+[node name="Preload Notes" type="Node2D" parent="Side Bar/Tabs/Misc"]
+visible = false
+position = Vector2( 285, 375 )
+script = ExtResource( 2 )
+save_name = "preload_notes"
+description = "Preloads notes at song start (may impact performance) (experimental)"
+
+[node name="Text" type="RichTextLabel" parent="Side Bar/Tabs/Misc/Preload Notes"]
+margin_left = 17.0
+margin_top = 14.0
+margin_right = 694.0
+margin_bottom = 99.0
+rect_clip_content = false
+custom_fonts/normal_font = ExtResource( 8 )
+text = "PRELOAD NOTES"
+scroll_active = false
+
+[node name="Checkbox" type="AnimatedSprite" parent="Side Bar/Tabs/Misc/Preload Notes"]
+position = Vector2( 299, 24 )
+frames = ExtResource( 5 )
+animation = "Unchecked"
+playing = true
+
+[node name="Tools Menu" type="Node2D" parent="Side Bar/Tabs/Misc"]
+visible = false
+position = Vector2( 274, 1432 )
+script = ExtResource( 9 )
+scene = "Tools Menu"
+description = "Some in-game tools to make modding easier."
+
+[node name="Text" type="RichTextLabel" parent="Side Bar/Tabs/Misc/Tools Menu"]
+margin_left = 17.0
+margin_top = 14.0
+margin_right = 300.0
+margin_bottom = 99.0
+rect_clip_content = false
+custom_fonts/normal_font = ExtResource( 8 )
+text = "TOOLS"
+scroll_active = false
+
+[node name="ManageSaves" type="Node2D" parent="Side Bar/Tabs/Misc"]
+visible = false
+position = Vector2( 274, 1432 )
+script = ExtResource( 9 )
+scene = "res://Scenes/manage-savedata.tscn"
+description = "Manage your save data."
+
+[node name="Text" type="RichTextLabel" parent="Side Bar/Tabs/Misc/ManageSaves"]
+self_modulate = Color( 1, 0.921569, 0, 1 )
+margin_left = 17.0
+margin_top = 14.0
+margin_right = 300.0
+margin_bottom = 99.0
+rect_clip_content = false
+custom_fonts/normal_font = ExtResource( 8 )
+text = "MANAGE SAVE DATA"
+scroll_active = false
+
+[node name="menubox" type="Node2D" parent="Side Bar"]
+z_index = -2
+
+[node name="NinePatchRect" type="NinePatchRect" parent="Side Bar/menubox"]
+margin_left = 184.0
+margin_top = 88.0
+margin_right = 336.0
+margin_bottom = 175.0
+rect_scale = Vector2( 6, 6 )
+texture = ExtResource( 4 )
+patch_margin_left = 2
+patch_margin_top = 2
+patch_margin_right = 2
+patch_margin_bottom = 2
+
+[node name="preview-img" type="AnimatedSprite" parent="Side Bar/menubox"]
+visible = false
+position = Vector2( 848, 464 )
+scale = Vector2( 0.759974, 0.759973 )
+z_index = 1
+frames = SubResource( 8 )
+animation = "toogoofy-1"
+
+[node name="selectSquare" type="Node2D" parent="Side Bar"]
+z_index = -1
+
+[node name="ColorRect" type="ColorRect" parent="Side Bar/selectSquare"]
+margin_left = 104.0
+margin_top = 8.0
+margin_right = 256.0
+margin_bottom = 42.0
+color = Color( 0.603922, 0, 0, 0.937255 )
+
+[node name="squareanims" type="AnimationPlayer" parent="Side Bar/selectSquare"]
+autoplay = "loop"
+playback_speed = 0.7
+anims/RESET = SubResource( 6 )
+anims/loop = SubResource( 7 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/RESET = SubResource( 2 )
+anims/close = SubResource( 3 )
+anims/open = SubResource( 1 )

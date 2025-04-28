@@ -1,0 +1,20 @@
+[gd_resource type="Resource" load_steps=2 format=2]
+
+[ext_resource path="res://Scripts/CreditsMetadata.gd" type="Script" id=1]
+
+[resource]
+script = ExtResource( 1 )
+person_name = "Godot Engine"
+roles = "Engine on which the entire mod is built on!"
+description = "This mod and its engine are built on [color=aqua]Godot Engine 3![/color]
+We chose it over the traditional Haxe-based engines because a lot of things we wanted were easier to do here
+
+[color=aqua]Godot Engine[/color] is a cross-platform game engine to create 2D and 3D games from a unified interface.
+It provides a comprehensive set of common tools, so that you can focus on making games without having to reinvent the wheel.
+
+
+Maybe you should give it a try! It's [color=lime]free, open source, and really intuitive[/color] to learn and use :)"
+icon_name = "godot"
+open_link_on_interact = true
+interact_link = "https://godotengine.org"
+user_color = Color( 0.192157, 0.364706, 0.960784, 1 )

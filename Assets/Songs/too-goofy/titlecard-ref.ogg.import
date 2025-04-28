@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/titlecard-ref.ogg-46378353cd92dfee8b00864f5899709e.oggstr"
+
+[deps]
+
+source_file="res://Assets/Songs/too-goofy/titlecard-ref.ogg"
+dest_files=[ "res://.import/titlecard-ref.ogg-46378353cd92dfee8b00864f5899709e.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0

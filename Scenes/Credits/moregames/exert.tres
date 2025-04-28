@@ -1,0 +1,11 @@
+[gd_resource type="Resource" load_steps=2 format=2]
+
+[ext_resource path="res://Scripts/MoreGamesMetadata.gd" type="Script" id=1]
+
+[resource]
+script = ExtResource( 1 )
+game_name = "Sonic.EXE (Rookies Edition)"
+description = "EXE: RT is another FNF mod about Sonic.EXE. Her director, ForFurtherNotice, works here too!"
+icon_name = "exert"
+interact_link = "https://x.com/Rookies_Team"
+game_color = Color( 0.266667, 0.364706, 1, 1 )

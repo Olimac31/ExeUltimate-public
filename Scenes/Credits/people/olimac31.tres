@@ -1,0 +1,24 @@
+[gd_resource type="Resource" load_steps=2 format=2]
+
+[ext_resource path="res://Scripts/CreditsMetadata.gd" type="Script" id=1]
+
+[resource]
+script = ExtResource( 1 )
+person_name = "Olimac31"
+roles = "Director, Lead Programmer, Musician, UI Artist, Pixel Artist, Charter"
+description = "Hey guys!
+I [color=yellow]coded[/color] the entire mod and now I'm [shake level=7]fucking dead[/shake][wave] LMAO[/wave]
+
+I also composed [color=red]Too Goofy[/color] alongside Trains, charted it, helped with [color=fuchsia]UI stuff[/color], implemented all assets, etc.
+I'm also [color=lime]Director[/color] apparently, even though I have NO idea how I ended up being one
+
+I'm [color=yellow]thankful[/color] for everyone who put their blood and sweat into this funny little project :)
+[center]Hope yall like the mod![/center]
+
+
+
+Also check out [wave][color=red]Vs. Purki Christmas[/color][/wave] and [wave][color=silver]Sunday Night Suicide: ABSOLUTE[/color][/wave] btw,,,,,,,,,"
+icon_name = "olimac31"
+open_link_on_interact = true
+interact_link = "https://x.com/Olimac311"
+user_color = Color( 0, 1, 0.811765, 1 )

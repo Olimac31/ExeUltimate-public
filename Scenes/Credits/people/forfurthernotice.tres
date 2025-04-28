@@ -1,0 +1,22 @@
+[gd_resource type="Resource" load_steps=2 format=2]
+
+[ext_resource path="res://Scripts/CreditsMetadata.gd" type="Script" id=1]
+
+[resource]
+script = ExtResource( 1 )
+person_name = "ForFurtherNotice"
+roles = "Musician"
+description = "Hi! I'm [color=#860dff]ForFurtherNotice![/color] I'm purple! I make music! [color=red][shake level=10]Subscribe! Subscribe! Subscribe! Subscr[/shake][/color]
+
+I made literally [color=yellow]every single menu theme[/color] in the mod, that was all me. I hope you liked them all, because I will [wave]DEFINITELY[/wave] be doing every single song in every upcoming update, don't trust Oli's lies. 
+
+I also have my own EXE mod, [color=aqua]EXE: RT[/color], which you should [wave]TOTALLY[/wave] check out instead of this [shake level=8]GARBAGE.[/shake]
+
+
+
+
+Also subscribe to me. Have I mentioned that already? Probably, who cares."
+icon_name = "notice"
+open_link_on_interact = true
+interact_link = "https://spacehey.com/forfurthernotice"
+user_color = Color( 0.52549, 0.0509804, 1, 1 )

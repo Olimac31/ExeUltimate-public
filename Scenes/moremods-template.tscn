@@ -1,0 +1,134 @@
+[gd_scene load_steps=13 format=2]
+
+[ext_resource path="res://Scenes/moremods-template.gd" type="Script" id=1]
+[ext_resource path="res://Assets/Fonts/creditsfont-mini.tres" type="DynamicFont" id=2]
+[ext_resource path="res://Assets/Fonts/creditsfont.tres" type="DynamicFont" id=3]
+[ext_resource path="res://Assets/Images/UI/mod-shoutout-grid.png" type="Texture" id=4]
+
+[sub_resource type="AtlasTexture" id=12]
+flags = 4
+atlas = ExtResource( 4 )
+region = Rect2( 300, 0, 150, 150 )
+
+[sub_resource type="AtlasTexture" id=13]
+flags = 4
+atlas = ExtResource( 4 )
+region = Rect2( 150, 0, 150, 150 )
+
+[sub_resource type="AtlasTexture" id=14]
+flags = 4
+atlas = ExtResource( 4 )
+region = Rect2( 450, 0, 150, 150 )
+
+[sub_resource type="AtlasTexture" id=15]
+flags = 4
+atlas = ExtResource( 4 )
+region = Rect2( 0, 0, 150, 150 )
+
+[sub_resource type="AtlasTexture" id=18]
+flags = 4
+atlas = ExtResource( 4 )
+region = Rect2( 150, 150, 150, 150 )
+
+[sub_resource type="AtlasTexture" id=16]
+flags = 4
+atlas = ExtResource( 4 )
+region = Rect2( 600, 0, 150, 150 )
+
+[sub_resource type="AtlasTexture" id=19]
+flags = 4
+atlas = ExtResource( 4 )
+region = Rect2( 0, 150, 150, 150 )
+
+[sub_resource type="SpriteFrames" id=17]
+animations = [ {
+"frames": [  ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+}, {
+"frames": [ SubResource( 12 ) ],
+"loop": true,
+"name": "exert",
+"speed": 5.0
+}, {
+"frames": [ SubResource( 13 ) ],
+"loop": true,
+"name": "jerryrun",
+"speed": 5.0
+}, {
+"frames": [ SubResource( 14 ) ],
+"loop": true,
+"name": "pxmas",
+"speed": 5.0
+}, {
+"frames": [ SubResource( 15 ) ],
+"loop": true,
+"name": "snsabsolute",
+"speed": 5.0
+}, {
+"frames": [ SubResource( 18 ) ],
+"loop": true,
+"name": "sulpiquest",
+"speed": 5.0
+}, {
+"frames": [ SubResource( 16 ) ],
+"loop": true,
+"name": "vmrt",
+"speed": 5.0
+}, {
+"frames": [ SubResource( 19 ) ],
+"loop": true,
+"name": "vmu",
+"speed": 5.0
+} ]
+
+[node name="moremods-template" type="Node2D"]
+script = ExtResource( 1 )
+back_colors = [ Color( 0, 0, 0, 1 ), Color( 0.227451, 0.227451, 0.227451, 1 ) ]
+
+[node name="ColorRect" type="ColorRect" parent="."]
+margin_left = -80.0
+margin_top = -80.0
+margin_right = 384.0
+margin_bottom = 80.0
+mouse_filter = 2
+color = Color( 0, 0, 0, 1 )
+
+[node name="thumb" type="AnimatedSprite" parent="."]
+frames = SubResource( 17 )
+animation = "pxmas"
+
+[node name="title" type="RichTextLabel" parent="."]
+margin_left = 80.0
+margin_top = -75.0
+margin_right = 384.0
+margin_bottom = -35.0
+mouse_filter = 2
+custom_fonts/normal_font = ExtResource( 3 )
+bbcode_enabled = true
+bbcode_text = "Game Name"
+text = "Game Name"
+scroll_active = false
+
+[node name="desc" type="RichTextLabel" parent="."]
+margin_left = 80.0
+margin_top = -48.0
+margin_right = 376.0
+margin_bottom = 72.0
+mouse_filter = 2
+custom_fonts/normal_font = ExtResource( 2 )
+bbcode_enabled = true
+bbcode_text = "Game description goes here"
+text = "Game description goes here"
+scroll_active = false
+
+[node name="TextureButton" type="TextureButton" parent="."]
+margin_left = -80.0
+margin_top = -80.0
+margin_right = 384.0
+margin_bottom = 80.0
+
+[connection signal="mouse_entered" from="TextureButton" to="." method="_on_TextureButton_mouse_entered"]
+[connection signal="mouse_exited" from="TextureButton" to="." method="_on_TextureButton_mouse_exited"]
+[connection signal="pressed" from="TextureButton" to="." method="_on_TextureButton_pressed"]

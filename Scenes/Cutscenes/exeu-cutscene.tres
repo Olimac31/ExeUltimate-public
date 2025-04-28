@@ -1,0 +1,12 @@
+[gd_resource type="Resource" load_steps=2 format=2]
+
+[ext_resource path="res://Scripts/Dialogue_Res.gd" type="Script" id=1]
+
+[resource]
+script = ExtResource( 1 )
+filename = "default_dialogue"
+messages = [ "[shake level=8]Hey, wait up![/shake] I'm not done with you yet.", "Just gimme a second...", "[wave]Phew...[/wave] okay, so as I was saying...", "You sure can run, huh? But one thing's for certain, and that's that you can't hide!", "beep bap boop bep beep", "Now listen here you [wave]pint-sized buffoon[/wave], once I catch my breath I'll make you eat those words!", "boop bap bop", "Hey, where do you think you're going?", "Oh man, would you look at the time!", "[wave]It's lunch time![/wave]", "But once I'm done with this, [wave]I'll catch you once and for all[/wave], [color=aqua]Boyfriend FNF![/color]", "Check the [color=lime]Freeplay Menu[/color] to play the extra song you just unlocked!", "You already unlocked it before, that's why" ]
+characters = [ "xag", "xag", "xag", "xag", "bf", "xag", "bf", "xag", "xag", "xag", "xag", "godoticon", "godoticon" ]
+emotions = [ "default", "default", "default", "default", "default", "default", "default", "default", "default", "default", "default", "default", "default" ]
+is_YN_question = [ false, false, false, false, false, false, false, false, false, false, false, false, false ]
+is_multiple_choice = [ false, false, false, false, false, false, false, false, false, false, false, false, false ]

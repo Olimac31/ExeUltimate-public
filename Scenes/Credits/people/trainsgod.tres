@@ -1,0 +1,16 @@
+[gd_resource type="Resource" load_steps=2 format=2]
+
+[ext_resource path="res://Scripts/CreditsMetadata.gd" type="Script" id=1]
+
+[resource]
+script = ExtResource( 1 )
+person_name = "TrainsGod"
+roles = "Musician, Voice Actor (Xag)"
+description = "Hi I’m TrainsGod! Or just Trains! I helped compose the intro part of [color=red]too goofy[/color], along with providing [color=yellow]voice lines for Xag![/color]
+
+
+Also [url=https://www.youtube.com/watch?v=5DjOL2we8ko]insert adsfmovie joke here.[/url]"
+icon_name = "trains"
+open_link_on_interact = true
+interact_link = "https://x.com/GodTrains"
+user_color = Color( 0.172549, 0.592157, 1, 1 )

@@ -1,0 +1,7 @@
+[gd_scene format=2]
+
+[node name="crt-overlay" type="Polygon2D"]
+scale = Vector2( 1, 0.875 )
+color = Color( 0, 0, 0, 1 )
+antialiased = true
+polygon = PoolVector2Array( 64, 0, 56, 1.14286, 47, 2.28571, 41, 3.42857, 36, 4.57143, 30, 6.85714, 25, 10.2857, 19, 14.8571, 14, 20.5714, 11.1456, 24.8101, 9, 29.7143, 6, 38.8571, 4, 48, 2, 58.2857, 0, 73.1429, 0, 0, 40, 0, 52, 0 )

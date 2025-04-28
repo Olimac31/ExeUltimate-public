@@ -1,0 +1,256 @@
+[gd_scene load_steps=18 format=2]
+
+[ext_resource path="res://Assets/Images/UI/textbox-1.png" type="Texture" id=1]
+[ext_resource path="res://Assets/Fonts/sonic-the-hedgehog-1-hud-font.ttf" type="DynamicFontData" id=2]
+[ext_resource path="res://Assets/Images/UI/textbox-1-smaller.png" type="Texture" id=3]
+[ext_resource path="res://Scripts/TextWriter.gd" type="Script" id=4]
+[ext_resource path="res://icon.png" type="Texture" id=5]
+[ext_resource path="res://Assets/Sounds/select.wav" type="AudioStream" id=6]
+[ext_resource path="res://Scripts/textWriter-ynquestion.gd" type="Script" id=7]
+[ext_resource path="res://Assets/Sounds/select_2.wav" type="AudioStream" id=8]
+[ext_resource path="res://Assets/Fonts/sonic-hud-life.ttf" type="DynamicFontData" id=9]
+
+[sub_resource type="DynamicFont" id=1]
+size = 24
+font_data = ExtResource( 9 )
+
+[sub_resource type="DynamicFont" id=2]
+extra_spacing_top = 6
+font_data = ExtResource( 2 )
+
+[sub_resource type="AtlasTexture" id=7]
+flags = 4
+atlas = ExtResource( 5 )
+region = Rect2( 0, 0, 64, 64 )
+
+[sub_resource type="SpriteFrames" id=8]
+animations = [ {
+"frames": [ SubResource( 7 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+} ]
+
+[sub_resource type="Animation" id=4]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("UI:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ) ]
+}
+
+[sub_resource type="Animation" id=5]
+resource_name = "close"
+tracks/0/type = "value"
+tracks/0/path = NodePath("UI:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2, 0.5 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+
+[sub_resource type="Animation" id=3]
+resource_name = "open"
+tracks/0/type = "value"
+tracks/0/path = NodePath("UI:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2 ),
+"transitions": PoolRealArray( 1, 0.129408 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+
+[sub_resource type="Animation" id=6]
+resource_name = "opened"
+tracks/0/type = "value"
+tracks/0/path = NodePath("UI:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ) ]
+}
+
+[node name="CanvasLayer" type="CanvasLayer"]
+layer = 80
+
+[node name="UI" type="Node2D" parent="."]
+position = Vector2( 0, 24 )
+script = ExtResource( 4 )
+
+[node name="NinePatchRect2" type="NinePatchRect" parent="UI"]
+margin_left = 48.0
+margin_right = 424.0
+margin_bottom = 56.0
+texture = ExtResource( 3 )
+region_rect = Rect2( 0, 0, 67.6247, 39.677 )
+patch_margin_left = 25
+patch_margin_top = 36
+patch_margin_right = 27
+patch_margin_bottom = 12
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="NinePatchRect" type="NinePatchRect" parent="UI"]
+margin_left = 24.0
+margin_top = 56.0
+margin_right = 1256.0
+margin_bottom = 240.0
+texture = ExtResource( 1 )
+patch_margin_left = 40
+patch_margin_top = 24
+patch_margin_right = 43
+patch_margin_bottom = 27
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="NinePatchRect3" type="NinePatchRect" parent="UI"]
+margin_left = 56.0
+margin_top = 72.0
+margin_right = 232.0
+margin_bottom = 224.0
+texture = ExtResource( 3 )
+draw_center = false
+patch_margin_left = 13
+patch_margin_top = 12
+patch_margin_right = 14
+patch_margin_bottom = 12
+
+[node name="message" type="RichTextLabel" parent="UI"]
+margin_left = 240.0
+margin_top = 80.0
+margin_right = 1208.0
+margin_bottom = 240.0
+mouse_filter = 2
+custom_fonts/normal_font = SubResource( 1 )
+bbcode_enabled = true
+bbcode_text = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud."
+text = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud."
+scroll_active = false
+
+[node name="Tween" type="Tween" parent="UI/message"]
+
+[node name="pressToContinue" type="RichTextLabel" parent="UI"]
+modulate = Color( 1, 1, 1, 0.545098 )
+margin_left = 80.0
+margin_top = 240.0
+margin_right = 1208.0
+margin_bottom = 304.0
+mouse_filter = 2
+custom_fonts/normal_font = SubResource( 2 )
+bbcode_enabled = true
+bbcode_text = "[right]Press [ENTER] to continue"
+text = "Press [ENTER] to continue"
+scroll_active = false
+
+[node name="charname" type="RichTextLabel" parent="UI"]
+margin_left = 64.0
+margin_top = 16.0
+margin_right = 400.0
+margin_bottom = 48.0
+mouse_filter = 2
+custom_fonts/normal_font = SubResource( 1 )
+bbcode_enabled = true
+bbcode_text = "[center]character[/center]"
+text = "character"
+scroll_active = false
+
+[node name="charPortrait" type="AnimatedSprite" parent="UI"]
+position = Vector2( 144, 144 )
+frames = SubResource( 8 )
+
+[node name="YN" type="Node2D" parent="UI"]
+script = ExtResource( 7 )
+
+[node name="Options" type="Node2D" parent="UI/YN"]
+position = Vector2( 112, 288 )
+
+[node name="Option_1" type="Node2D" parent="UI/YN/Options"]
+position = Vector2( 0, 8 )
+z_index = 1
+
+[node name="label" type="RichTextLabel" parent="UI/YN/Options/Option_1"]
+margin_left = -48.0
+margin_top = -16.0
+margin_right = 48.0
+margin_bottom = 20.0
+mouse_filter = 2
+custom_fonts/normal_font = SubResource( 1 )
+bbcode_enabled = true
+bbcode_text = "[center]Yes"
+text = "Yes"
+scroll_active = false
+
+[node name="Option_2" type="Node2D" parent="UI/YN/Options"]
+position = Vector2( 0, 56 )
+z_index = 1
+
+[node name="label" type="RichTextLabel" parent="UI/YN/Options/Option_2"]
+margin_left = -48.0
+margin_top = -16.0
+margin_right = 48.0
+margin_bottom = 20.0
+mouse_filter = 2
+custom_fonts/normal_font = SubResource( 1 )
+bbcode_enabled = true
+bbcode_text = "[center]No"
+text = "No"
+scroll_active = false
+
+[node name="NinePatchRect4" type="NinePatchRect" parent="UI/YN"]
+margin_left = 32.0
+margin_top = 250.0
+margin_right = 192.0
+margin_bottom = 384.0
+texture = ExtResource( 3 )
+patch_margin_left = 50
+patch_margin_top = 19
+patch_margin_right = 51
+patch_margin_bottom = 16
+
+[node name="selectSquare" type="Node2D" parent="UI/YN"]
+position = Vector2( 112, 296 )
+
+[node name="colorRect" type="ColorRect" parent="UI/YN/selectSquare"]
+margin_left = -56.0
+margin_top = -16.0
+margin_right = 56.0
+margin_bottom = 16.0
+mouse_filter = 2
+color = Color( 1, 1, 1, 0.294118 )
+
+[node name="Tween" type="Tween" parent="UI/YN"]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/RESET = SubResource( 4 )
+anims/close = SubResource( 5 )
+anims/open = SubResource( 3 )
+anims/opened = SubResource( 6 )
+
+[node name="voice_beep" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 6 )
+
+[node name="continue" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 8 )

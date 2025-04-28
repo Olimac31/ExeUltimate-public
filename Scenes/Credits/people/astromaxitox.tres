@@ -1,0 +1,18 @@
+[gd_resource type="Resource" load_steps=2 format=2]
+
+[ext_resource path="res://Scripts/CreditsMetadata.gd" type="Script" id=1]
+
+[resource]
+script = ExtResource( 1 )
+person_name = "Maxitox"
+roles = "Co-Director, Feedback"
+description = "Heya, I'm Maxitox. I'm a charter, composer, and the guy who made [color=yellow]Team Advance[/color], a group of former Novatos Team members [color=gray](ye, the ones from VS. Mouse)[/color] and other veterans who currently take care of various FNF mod projects, including the same one you're playing right now!
+
+I'm co-director, I came up with the name of this mod as a joke referencing [color=red]VS. Mouse Ultimate[/color] (ironic since I named both mods LMAO) and I was in charge of [color=aqua]brainstorming some ideas[/color] which haven't been implemented yet. Maybe they will, [wave]but who knows?[/wave]
+
+
+Keep an eye for future [color=yellow]Team Advance[/color] projects, which includes mods about Console-tans, Evangelion, UNDERTALE, Murder Drones and many more!"
+icon_name = "maxi"
+open_link_on_interact = true
+interact_link = "https://x.com/AstroMaxitox"
+user_color = Color( 1, 0.905882, 0.145098, 1 )

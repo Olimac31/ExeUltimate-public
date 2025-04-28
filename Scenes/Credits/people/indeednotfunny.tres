@@ -1,0 +1,15 @@
+[gd_resource type="Resource" load_steps=2 format=2]
+
+[ext_resource path="res://Scripts/CreditsMetadata.gd" type="Script" id=1]
+
+[resource]
+script = ExtResource( 1 )
+person_name = "indeednotfunny"
+roles = "Playtesting and Bugfixing"
+description = "Hey there, I am indeednotfunny, I helped Olimac31 with the play testing on the Mac build and some of the bug fixing (despite it being only 1). 
+
+I hope you enjoyed this mod as the team went all out in the fangame. I greatly thank Olimac31 for giving me the chance to test the game on the Mac build, even though 95% of players are on Windows or other platforms."
+icon_name = "indeed"
+open_link_on_interact = true
+interact_link = "https://x.com/indeednotfunny"
+user_color = Color( 0.113725, 1, 0.980392, 1 )

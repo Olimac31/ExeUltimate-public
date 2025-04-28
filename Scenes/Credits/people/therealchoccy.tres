@@ -1,0 +1,17 @@
+[gd_resource type="Resource" load_steps=2 format=2]
+
+[ext_resource path="res://Scripts/CreditsMetadata.gd" type="Script" id=1]
+
+[resource]
+script = ExtResource( 1 )
+person_name = "ther3alchoccy"
+roles = "Artist, Animator"
+description = "I ANIMATED BF AND MADE THE MISSES
+[shake]HE'S REAL
+I'M REAL[/shake]
+IM 
+it's ther3alchoccy not chocyice"
+icon_name = "choccy"
+open_link_on_interact = true
+interact_link = "https://x.com/Th3realchoccy"
+user_color = Color( 0.254902, 1, 0.529412, 1 )

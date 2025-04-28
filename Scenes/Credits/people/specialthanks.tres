@@ -1,0 +1,19 @@
+[gd_resource type="Resource" load_steps=2 format=2]
+
+[ext_resource path="res://Scripts/CreditsMetadata.gd" type="Script" id=1]
+
+[resource]
+script = ExtResource( 1 )
+person_name = "Special Thanks"
+roles = "Moral Support, Feedback and Playtesting"
+description = "Thank you for helping us with feedback, playtesting, or just being with us during the development of this mod!
+
+[center]
+JudiiDoodle, DaniGFBI, Luigi-Dono, CommandoDev, SpringCritic, Syrolander, Jesus Viloria, LeftyDefty, Cytrogen, MathiMomos, DenkiDev, Acrylic, indeednotfunny, Saster, EvaEva and Mari0Mari0
+
+
+[/center][color=gray]Some of these people may participate on future updates of the mod![/color]"
+icon_name = "default"
+open_link_on_interact = true
+interact_link = "https://x.com/ExeUltimate"
+user_color = Color( 1, 0.882353, 0.109804, 1 )

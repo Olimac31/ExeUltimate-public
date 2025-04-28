@@ -1,0 +1,13 @@
+[gd_resource type="Resource" load_steps=2 format=2]
+
+[ext_resource path="res://Scripts/SongMetadata.gd" type="Script" id=1]
+
+[resource]
+script = ExtResource( 1 )
+song_filename = "too-goofy"
+song_name = "Too Goofy"
+song_author = "Olimac31 (Ft. Trains)"
+is_unlocked = true
+song_color = Color( 1, 0.0431373, 0.290196, 1 )
+song_type = "Normal"
+song_link = "https://www.youtube.com/watch?v=0OL2D9SM7Os"

@@ -1,0 +1,27 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://Scenes/Credits/creditname-template.gd" type="Script" id=1]
+[ext_resource path="res://Assets/Fonts/Raleway-Bold.ttf" type="DynamicFontData" id=2]
+[ext_resource path="res://Scenes/Credits/people/olimac31.tres" type="Resource" id=3]
+
+[sub_resource type="DynamicFont" id=1]
+size = 45
+outline_color = Color( 0, 0, 0, 1 )
+extra_spacing_char = -2
+font_data = ExtResource( 2 )
+
+[node name="creditname" type="Node2D"]
+script = ExtResource( 1 )
+credit_data = ExtResource( 3 )
+
+[node name="text" type="RichTextLabel" parent="."]
+margin_left = 10.0
+margin_top = -24.0
+margin_right = 448.0
+margin_bottom = 16.0
+rect_clip_content = false
+custom_fonts/normal_font = SubResource( 1 )
+bbcode_enabled = true
+bbcode_text = "Sample Name"
+text = "Sample Name"
+scroll_active = false

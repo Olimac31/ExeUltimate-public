@@ -1,0 +1,675 @@
+[gd_scene load_steps=36 format=2]
+
+[ext_resource path="res://addons/EasyBlend/EasyBlend.shader" type="Shader" id=1]
+[ext_resource path="res://addons/EasyBlend/Blends/multiply.png" type="Texture" id=2]
+[ext_resource path="res://Assets/Shaders/2dclouds.gdshader" type="Shader" id=3]
+[ext_resource path="res://Assets/Images/UI/Title Screen/triangle-shape.png" type="Texture" id=4]
+[ext_resource path="res://Assets/Images/UI/Title Screen/triangle-shape-back.png" type="Texture" id=5]
+[ext_resource path="res://Assets/Images/UI/Title Screen/vsu_logo.png" type="Texture" id=6]
+[ext_resource path="res://Assets/Shaders/vignette.tscn" type="PackedScene" id=7]
+[ext_resource path="res://addons/EasyBlend/Blends/overlay.png" type="Texture" id=8]
+[ext_resource path="res://Assets/Fonts/sonikku-plus.ttf" type="DynamicFontData" id=9]
+[ext_resource path="res://Scenes/exe_title.gd" type="Script" id=10]
+[ext_resource path="res://Assets/Fonts/sonic-hud-font.tres" type="DynamicFont" id=11]
+[ext_resource path="res://Scenes/title-particles.tscn" type="PackedScene" id=12]
+[ext_resource path="res://Scenes/Options Menu.tscn" type="PackedScene" id=13]
+[ext_resource path="res://Assets/Fonts/consola.ttf" type="DynamicFontData" id=14]
+
+[sub_resource type="Gradient" id=7]
+offsets = PoolRealArray( 0.0391061, 0.396648, 1 )
+colors = PoolColorArray( 0, 0.00201416, 0.128906, 1, 0, 0.175903, 0.511719, 1, 0, 0.601563, 1, 1 )
+
+[sub_resource type="GradientTexture2D" id=8]
+gradient = SubResource( 7 )
+fill_from = Vector2( 0.6, 0 )
+fill_to = Vector2( 0.5, 1 )
+
+[sub_resource type="OpenSimplexNoise" id=5]
+seed = 142
+octaves = 4
+period = 193.4
+persistence = 0.42
+lacunarity = 4.0
+
+[sub_resource type="NoiseTexture" id=6]
+seamless = true
+noise = SubResource( 5 )
+
+[sub_resource type="ShaderMaterial" id=1]
+shader = ExtResource( 3 )
+shader_param/density = 1.0
+shader_param/speed = Vector2( 0.03, 0.015 )
+shader_param/noise_texture = SubResource( 6 )
+
+[sub_resource type="ShaderMaterial" id=3]
+shader = ExtResource( 1 )
+shader_param/enabled = true
+shader_param/Intensity = 1.0
+shader_param/Blend = ExtResource( 2 )
+
+[sub_resource type="DynamicFont" id=16]
+size = 40
+font_data = ExtResource( 9 )
+
+[sub_resource type="Animation" id=10]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("triangle:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 0, 0 ) ]
+}
+
+[sub_resource type="Animation" id=9]
+resource_name = "loop"
+length = 4.0
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("triangle:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 4 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0, 0 ), Vector2( -900, 0 ) ]
+}
+
+[sub_resource type="Animation" id=20]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("ColorRect:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ) ]
+}
+
+[sub_resource type="Animation" id=21]
+resource_name = "loop"
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("ColorRect:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5, 1 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0.784314 ), Color( 1, 1, 1, 1 ) ]
+}
+
+[sub_resource type="Animation" id=15]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:offset")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 0, -20 ) ]
+}
+
+[sub_resource type="Animation" id=14]
+resource_name = "loop"
+length = 2.0
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:offset")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1, 2 ),
+"transitions": PoolRealArray( -2, -2, 1 ),
+"update": 0,
+"values": [ Vector2( 0, -14 ), Vector2( 0, 14 ), Vector2( 0, -14 ) ]
+}
+
+[sub_resource type="ShaderMaterial" id=13]
+shader = ExtResource( 1 )
+shader_param/enabled = true
+shader_param/Intensity = 1.0
+shader_param/Blend = ExtResource( 8 )
+
+[sub_resource type="Gradient" id=11]
+offsets = PoolRealArray( 0.0726257, 0.972067 )
+colors = PoolColorArray( 0.160784, 0, 0, 1, 1, 0, 0, 1 )
+
+[sub_resource type="GradientTexture2D" id=12]
+gradient = SubResource( 11 )
+fill_from = Vector2( 0.6, 0.9 )
+fill_to = Vector2( 0.8, 0 )
+
+[sub_resource type="DynamicFont" id=28]
+outline_size = 1
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 14 )
+
+[sub_resource type="Animation" id=18]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("bottom_menu:offset")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 0, 0 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("logo:offset")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 0, 0 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("bottom_menu/enter_text:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("bottom_menu/options:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ) ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("bottom_menu/select_square:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ true ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("logo/VsuLogo:scale")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 0.7, 0.7 ) ]
+}
+
+[sub_resource type="Animation" id=17]
+resource_name = "enter"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/path = NodePath("bottom_menu:offset")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.4, 1.7 ),
+"transitions": PoolRealArray( 0.277392, 0.277392, 1 ),
+"update": 0,
+"values": [ Vector2( 0, 720 ), Vector2( 0, 720 ), Vector2( 0, 0 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("logo:offset")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.4, 2 ),
+"transitions": PoolRealArray( 0.31864, 0.31864, 1 ),
+"update": 0,
+"values": [ Vector2( 0, -600 ), Vector2( 0, -600 ), Vector2( 0, 0 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("bottom_menu/enter_text:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 1.7, 2 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("bottom_menu/options:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ) ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("bottom_menu/select_square:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+tracks/5/type = "method"
+tracks/5/path = NodePath(".")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 2 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "goto_press_enter"
+} ]
+}
+
+[sub_resource type="Animation" id=27]
+resource_name = "exiting"
+length = 2.2
+tracks/0/type = "value"
+tracks/0/path = NodePath("bottom_menu:offset")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 3.36358, 1 ),
+"update": 0,
+"values": [ Vector2( 0, 0 ), Vector2( 0, 500 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("bottom_menu/options:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("bottom_menu/select_square:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("logo:offset")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 1.5 ),
+"transitions": PoolRealArray( -2, 1 ),
+"update": 0,
+"values": [ Vector2( 0, 0 ), Vector2( 0, 64 ) ]
+}
+tracks/4/type = "method"
+tracks/4/path = NodePath(".")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 1.7 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "actually_exit"
+} ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("logo/VsuLogo:scale")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0, 1, 2.1 ),
+"transitions": PoolRealArray( 1, 4.59479, 1 ),
+"update": 0,
+"values": [ Vector2( 0.7, 0.7 ), Vector2( 0.7, 0.7 ), Vector2( 2.5, 2.5 ) ]
+}
+
+[sub_resource type="Animation" id=19]
+resource_name = "start_choosing"
+tracks/0/type = "value"
+tracks/0/path = NodePath("bottom_menu/enter_text:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("bottom_menu/options:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.2, 0.5 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("bottom_menu/select_square:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ false, true ]
+}
+
+[node name="exe_title" type="Node2D"]
+script = ExtResource( 10 )
+
+[node name="vignette" parent="." instance=ExtResource( 7 )]
+layer = 5
+
+[node name="skybox" type="CanvasLayer" parent="."]
+layer = -10
+scale = Vector2( 3, 3 )
+transform = Transform2D( 3, 0, 0, 3, 0, 0 )
+
+[node name="bg" type="TextureRect" parent="skybox"]
+margin_right = 427.0
+margin_bottom = 240.0
+texture = SubResource( 8 )
+expand = true
+
+[node name="clouds" type="ColorRect" parent="skybox"]
+modulate = Color( 1, 1, 1, 0.882353 )
+material = SubResource( 1 )
+margin_right = 427.0
+margin_bottom = 243.0
+color = Color( 5, 5, 5, 1 )
+
+[node name="skyboxfilter" type="CanvasLayer" parent="."]
+layer = -9
+
+[node name="ColorRect" type="ColorRect" parent="skyboxfilter"]
+modulate = Color( 0.564706, 0, 0, 1 )
+material = SubResource( 3 )
+margin_right = 1280.0
+margin_bottom = 720.0
+
+[node name="bottom_menu" type="CanvasLayer" parent="."]
+layer = -1
+
+[node name="enter_text" type="Node2D" parent="bottom_menu"]
+position = Vector2( 640, 664 )
+z_index = 4
+
+[node name="RichTextLabel" type="RichTextLabel" parent="bottom_menu/enter_text"]
+margin_left = -320.0
+margin_top = -32.0
+margin_right = 320.0
+margin_bottom = 32.0
+custom_fonts/normal_font = SubResource( 16 )
+bbcode_enabled = true
+bbcode_text = "[center][wave]PRESS ENTER TO BEGIN"
+text = "PRESS ENTER TO BEGIN"
+
+[node name="bottom-backdrop" type="Node2D" parent="bottom_menu"]
+z_index = 2
+
+[node name="triangle" type="Node2D" parent="bottom_menu/bottom-backdrop"]
+modulate = Color( 0.815686, 0.00784314, 0.00784314, 1 )
+scale = Vector2( 0.6, 0.6 )
+
+[node name="TextureRect" type="TextureRect" parent="bottom_menu/bottom-backdrop/triangle"]
+margin_top = 938.334
+margin_right = 4660.0
+margin_bottom = 1028.33
+texture = ExtResource( 4 )
+stretch_mode = 2
+
+[node name="TextureRect2" type="TextureRect" parent="bottom_menu/bottom-backdrop/triangle"]
+margin_top = 938.334
+margin_right = 4660.0
+margin_bottom = 1028.33
+texture = ExtResource( 5 )
+stretch_mode = 2
+
+[node name="ColorRect" type="ColorRect" parent="bottom_menu/bottom-backdrop"]
+margin_top = 616.0
+margin_right = 1281.0
+margin_bottom = 729.0
+color = Color( 0, 0, 0, 1 )
+
+[node name="triangleanims" type="AnimationPlayer" parent="bottom_menu/bottom-backdrop"]
+autoplay = "loop"
+playback_speed = 0.2
+anims/RESET = SubResource( 10 )
+anims/loop = SubResource( 9 )
+
+[node name="options" type="Node2D" parent="bottom_menu"]
+z_index = 3
+
+[node name="start" type="Node2D" parent="bottom_menu/options"]
+modulate = Color( 0.498039, 0.498039, 0.498039, 1 )
+position = Vector2( 168, 672 )
+
+[node name="text" type="Label" parent="bottom_menu/options/start"]
+margin_left = -92.0
+margin_top = -32.0
+margin_right = 92.0
+margin_bottom = 32.0
+custom_fonts/font = ExtResource( 11 )
+text = "Start Game"
+align = 1
+valign = 1
+
+[node name="freeplay" type="Node2D" parent="bottom_menu/options"]
+position = Vector2( 360, 672 )
+
+[node name="text" type="Label" parent="bottom_menu/options/freeplay"]
+margin_left = -90.0
+margin_top = -32.0
+margin_right = 94.0
+margin_bottom = 32.0
+custom_fonts/font = ExtResource( 11 )
+text = "Freeplay"
+align = 1
+valign = 1
+
+[node name="options" type="Node2D" parent="bottom_menu/options"]
+position = Vector2( 552, 672 )
+
+[node name="text" type="Label" parent="bottom_menu/options/options"]
+margin_left = -90.0
+margin_top = -32.0
+margin_right = 94.0
+margin_bottom = 32.0
+custom_fonts/font = ExtResource( 11 )
+text = "Options"
+align = 1
+valign = 1
+
+[node name="credits" type="Node2D" parent="bottom_menu/options"]
+position = Vector2( 744, 672 )
+
+[node name="text" type="Label" parent="bottom_menu/options/credits"]
+margin_left = -90.0
+margin_top = -32.0
+margin_right = 94.0
+margin_bottom = 32.0
+custom_fonts/font = ExtResource( 11 )
+text = "Credits"
+align = 1
+valign = 1
+
+[node name="report" type="Node2D" parent="bottom_menu/options"]
+modulate = Color( 1, 0.490196, 0.439216, 1 )
+position = Vector2( 944, 672 )
+
+[node name="text" type="Label" parent="bottom_menu/options/report"]
+margin_left = -92.0
+margin_top = -32.0
+margin_right = 92.0
+margin_bottom = 32.0
+custom_fonts/font = ExtResource( 11 )
+text = "Report Bug"
+align = 1
+valign = 1
+
+[node name="exit" type="Node2D" parent="bottom_menu/options"]
+position = Vector2( 1128, 672 )
+
+[node name="text" type="Label" parent="bottom_menu/options/exit"]
+margin_left = -92.0
+margin_top = -32.0
+margin_right = 92.0
+margin_bottom = 32.0
+custom_fonts/font = ExtResource( 11 )
+text = "Exit"
+align = 1
+valign = 1
+
+[node name="select_square" type="Node2D" parent="bottom_menu"]
+position = Vector2( 168, 672 )
+z_index = 2
+
+[node name="ColorRect" type="ColorRect" parent="bottom_menu/select_square"]
+margin_left = -88.0
+margin_top = -24.0
+margin_right = 88.0
+margin_bottom = 24.0
+color = Color( 1, 0, 0, 0.54902 )
+
+[node name="squareanims" type="AnimationPlayer" parent="bottom_menu/select_square"]
+autoplay = "loop"
+playback_speed = 0.75
+anims/RESET = SubResource( 20 )
+anims/loop = SubResource( 21 )
+
+[node name="logo" type="CanvasLayer" parent="."]
+
+[node name="VsuLogo" type="Sprite" parent="logo"]
+position = Vector2( 640, 296 )
+scale = Vector2( 0.7, 0.7 )
+texture = ExtResource( 6 )
+offset = Vector2( 0, -20 )
+
+[node name="logoanims" type="AnimationPlayer" parent="logo/VsuLogo"]
+autoplay = "loop"
+playback_speed = 0.5
+anims/RESET = SubResource( 15 )
+anims/loop = SubResource( 14 )
+
+[node name="particles" type="CanvasLayer" parent="."]
+layer = -2
+
+[node name="Particles2D" parent="particles" instance=ExtResource( 12 )]
+
+[node name="filter" type="CanvasLayer" parent="."]
+
+[node name="TextureRect" type="TextureRect" parent="filter"]
+modulate = Color( 1, 1, 1, 0.509804 )
+material = SubResource( 13 )
+margin_right = 1280.0
+margin_bottom = 720.0
+texture = SubResource( 12 )
+expand = true
+
+[node name="version-num" type="CanvasLayer" parent="."]
+layer = 6
+
+[node name="Label" type="Label" parent="version-num"]
+margin_left = 944.0
+margin_top = 16.0
+margin_right = 1268.0
+margin_bottom = 64.0
+custom_fonts/font = SubResource( 28 )
+text = "Vs. Sonic.EXE ULTIMATE (DEMO v1.0.3)"
+align = 2
+
+[node name="Tween" type="Tween" parent="."]
+
+[node name="Options Menu" parent="." instance=ExtResource( 13 )]
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2( 640, 360 )
+current = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/RESET = SubResource( 18 )
+anims/enter = SubResource( 17 )
+anims/exiting = SubResource( 27 )
+anims/start_choosing = SubResource( 19 )

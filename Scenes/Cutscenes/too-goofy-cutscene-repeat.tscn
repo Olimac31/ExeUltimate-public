@@ -1,0 +1,104 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Assets/Fonts/cutscene-font.tres" type="DynamicFont" id=1]
+[ext_resource path="res://Scenes/Cutscenes/too-goofy-cutscene-repeat.gd" type="Script" id=2]
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource( 2 )
+
+[node name="bg" type="CanvasLayer" parent="."]
+layer = -10
+
+[node name="ColorRect" type="ColorRect" parent="bg"]
+margin_right = 1288.0
+margin_bottom = 728.0
+color = Color( 0, 0, 0, 1 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+layer = 2
+
+[node name="text-back" type="RichTextLabel" parent="CanvasLayer"]
+modulate = Color( 1, 1, 1, 0.25098 )
+margin_left = 323.0
+margin_top = 323.0
+margin_right = 963.0
+margin_bottom = 472.0
+custom_fonts/normal_font = ExtResource( 1 )
+bbcode_enabled = true
+bbcode_text = "[center]Do you wanna watch the cutscene again?"
+text = "Do you wanna watch the cutscene again?"
+
+[node name="text" type="RichTextLabel" parent="CanvasLayer"]
+margin_left = 320.0
+margin_top = 320.0
+margin_right = 960.0
+margin_bottom = 456.0
+custom_fonts/normal_font = ExtResource( 1 )
+bbcode_enabled = true
+bbcode_text = "[center]Do you wanna watch the cutscene again?"
+text = "Do you wanna watch the cutscene again?"
+
+[node name="yes" type="RichTextLabel" parent="CanvasLayer"]
+margin_left = 448.0
+margin_top = 400.0
+margin_right = 576.0
+margin_bottom = 464.0
+custom_fonts/normal_font = ExtResource( 1 )
+bbcode_enabled = true
+bbcode_text = "[center][color=lime]YES[/color]"
+text = "YES"
+
+[node name="yes2" type="RichTextLabel" parent="CanvasLayer"]
+modulate = Color( 1, 1, 1, 0.25098 )
+margin_left = 451.0
+margin_top = 403.0
+margin_right = 579.0
+margin_bottom = 467.0
+custom_fonts/normal_font = ExtResource( 1 )
+bbcode_enabled = true
+bbcode_text = "[center][color=lime]YES[/color]"
+text = "YES"
+
+[node name="no" type="RichTextLabel" parent="CanvasLayer"]
+margin_left = 704.0
+margin_top = 400.0
+margin_right = 832.0
+margin_bottom = 464.0
+custom_fonts/normal_font = ExtResource( 1 )
+bbcode_enabled = true
+bbcode_text = "[center][color=red]NO[/color]"
+text = "NO"
+
+[node name="no2" type="RichTextLabel" parent="CanvasLayer"]
+modulate = Color( 1, 1, 1, 0.25098 )
+margin_left = 707.0
+margin_top = 403.0
+margin_right = 835.0
+margin_bottom = 467.0
+custom_fonts/normal_font = ExtResource( 1 )
+bbcode_enabled = true
+bbcode_text = "[center][color=red]NO[/color]"
+text = "NO"
+
+[node name="square" type="Node2D" parent="."]
+position = Vector2( 768, 412 )
+
+[node name="ColorRect" type="ColorRect" parent="square"]
+margin_left = -36.0
+margin_top = -16.0
+margin_right = 36.0
+margin_bottom = 16.0
+color = Color( 0.360784, 0.0156863, 0.0156863, 1 )
+
+[node name="options" type="Node2D" parent="."]
+
+[node name="yes" type="Node2D" parent="options"]
+position = Vector2( 512, 412 )
+
+[node name="no" type="Node2D" parent="options"]
+position = Vector2( 768, 412 )
+
+[node name="Tween" type="Tween" parent="."]

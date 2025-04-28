@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TextureAtlas imagePath="zag_running.png">
+	<!-- Created with Adobe Animate version 22.0.3.179 -->
+	<!-- http://www.adobe.com/products/animate.html -->
+	<SubTexture name="ZagShad0000" x="30" y="30" width="631" height="449" frameX="0" frameY="-1" frameWidth="636" frameHeight="497"/>
+	<SubTexture name="ZagShad0001" x="30" y="30" width="631" height="449" frameX="0" frameY="-1" frameWidth="636" frameHeight="497"/>
+	<SubTexture name="ZagShad0002" x="30" y="30" width="631" height="449" frameX="0" frameY="-1" frameWidth="636" frameHeight="497"/>
+	<SubTexture name="ZagShad0003" x="30" y="30" width="631" height="449" frameX="0" frameY="-1" frameWidth="636" frameHeight="497"/>
+	<SubTexture name="ZagShad0004" x="662" y="30" width="630" height="460" frameX="-2" frameY="-9" frameWidth="636" frameHeight="497"/>
+	<SubTexture name="ZagShad0005" x="662" y="30" width="630" height="460" frameX="-2" frameY="-9" frameWidth="636" frameHeight="497"/>
+	<SubTexture name="ZagShad0006" x="662" y="30" width="630" height="460" frameX="-2" frameY="-9" frameWidth="636" frameHeight="497"/>
+	<SubTexture name="ZagShad0007" x="662" y="30" width="630" height="460" frameX="-2" frameY="-9" frameWidth="636" frameHeight="497"/>
+	<SubTexture name="ZagShad0008" x="662" y="30" width="630" height="460" frameX="-2" frameY="-9" frameWidth="636" frameHeight="497"/>
+	<SubTexture name="ZagShad0009" x="1293" y="30" width="631" height="480" frameX="0" frameY="-17" frameWidth="636" frameHeight="497"/>
+	<SubTexture name="ZagShad0010" x="1293" y="30" width="631" height="480" frameX="0" frameY="-17" frameWidth="636" frameHeight="497"/>
+	<SubTexture name="ZagShad0011" x="1293" y="30" width="631" height="480" frameX="0" frameY="-17" frameWidth="636" frameHeight="497"/>
+	<SubTexture name="ZagShad0012" x="30" y="511" width="634" height="469" frameX="-2" frameY="-16" frameWidth="636" frameHeight="497"/>
+	<SubTexture name="ZagShad0013" x="30" y="511" width="634" height="469" frameX="-2" frameY="-16" frameWidth="636" frameHeight="497"/>
+	<SubTexture name="ZagShad0014" x="665" y="511" width="631" height="457" frameX="0" frameY="-1" frameWidth="636" frameHeight="497"/>
+	<SubTexture name="ZagShad0015" x="665" y="511" width="631" height="457" frameX="0" frameY="-1" frameWidth="636" frameHeight="497"/>
+	<SubTexture name="ZagShad0016" x="665" y="511" width="631" height="457" frameX="0" frameY="-1" frameWidth="636" frameHeight="497"/>
+	<SubTexture name="ZagShad0017" x="665" y="511" width="631" height="457" frameX="0" frameY="-1" frameWidth="636" frameHeight="497"/>
+	<SubTexture name="ZagShad0018" x="1297" y="511" width="628" height="463" frameX="-2" frameY="0" frameWidth="636" frameHeight="497"/>
+	<SubTexture name="ZagShad0019" x="1297" y="511" width="628" height="463" frameX="-2" frameY="0" frameWidth="636" frameHeight="497"/>
+	<SubTexture name="ZagShad0020" x="1297" y="511" width="628" height="463" frameX="-2" frameY="0" frameWidth="636" frameHeight="497"/>
+	<SubTexture name="ZagShad0021" x="1297" y="511" width="628" height="463" frameX="-2" frameY="0" frameWidth="636" frameHeight="497"/>
+	<SubTexture name="ZagShad0022" x="1297" y="511" width="628" height="463" frameX="-2" frameY="0" frameWidth="636" frameHeight="497"/>
+	<SubTexture name="ZagShad0023" x="1293" y="30" width="631" height="480" frameX="0" frameY="-17" frameWidth="636" frameHeight="497"/>
+	<SubTexture name="ZagShad0024" x="1293" y="30" width="631" height="480" frameX="0" frameY="-17" frameWidth="636" frameHeight="497"/>
+	<SubTexture name="ZagShad0025" x="1293" y="30" width="631" height="480" frameX="0" frameY="-17" frameWidth="636" frameHeight="497"/>
+	<SubTexture name="ZagShad0026" x="30" y="511" width="634" height="469" frameX="-2" frameY="-16" frameWidth="636" frameHeight="497"/>
+	<SubTexture name="ZagShad0027" x="30" y="511" width="634" height="469" frameX="-2" frameY="-16" frameWidth="636" frameHeight="497"/>
+</TextureAtlas>

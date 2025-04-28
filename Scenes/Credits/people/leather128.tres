@@ -1,0 +1,19 @@
+[gd_resource type="Resource" load_steps=2 format=2]
+
+[ext_resource path="res://Scripts/CreditsMetadata.gd" type="Script" id=1]
+
+[resource]
+script = ExtResource( 1 )
+person_name = "Leather128"
+roles = "Creator and Lead Programmer of Leather Engine"
+description = "Leather128 created [color=aqua]Leather Engine[/color], the engine we used as a base for the mod!
+
+They recreated the entire [color=fuchsia]Friday Night Funkin'[/color] engine in [color=aqua]Godot 3[/color], and released the source code so anyone could take it and modify it.
+
+It was discontinued around early 2023, but since we picked it up we've been adding new features and reworking stuff to make it easier for us to use.
+
+Thank you for all your hard work!"
+icon_name = "leather"
+open_link_on_interact = true
+interact_link = "https://www.youtube.com/@Leather128"
+user_color = Color( 0.152941, 0.658824, 0.933333, 1 )

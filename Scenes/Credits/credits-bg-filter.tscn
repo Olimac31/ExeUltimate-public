@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=2]
+
+[sub_resource type="Gradient" id=3]
+colors = PoolColorArray( 1, 1, 1, 0, 1, 1, 1, 1 )
+
+[sub_resource type="GradientTexture2D" id=2]
+gradient = SubResource( 3 )
+fill_from = Vector2( 1, 1 )
+
+[node name="bg-filter" type="CanvasLayer"]
+layer = -19
+
+[node name="TextureRect" type="TextureRect" parent="."]
+modulate = Color( 1, 1, 1, 0.803922 )
+margin_right = 1280.0
+margin_bottom = 720.0
+texture = SubResource( 2 )
+expand = true

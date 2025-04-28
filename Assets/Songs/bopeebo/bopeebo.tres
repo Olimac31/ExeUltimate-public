@@ -1,0 +1,13 @@
+[gd_resource type="Resource" load_steps=2 format=2]
+
+[ext_resource path="res://Scripts/SongMetadata.gd" type="Script" id=1]
+
+[resource]
+script = ExtResource( 1 )
+song_filename = "bopeebo"
+song_name = "Bopeebo"
+song_author = "KawaiiSprite"
+is_unlocked = true
+song_color = Color( 0.72549, 0.0470588, 1, 1 )
+song_type = "Extra"
+song_link = "https://www.youtube.com/watch?v=V60N12UFNN4"

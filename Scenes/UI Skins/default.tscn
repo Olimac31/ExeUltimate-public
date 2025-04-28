@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Scenes/UI Skins/UI Skin.gd" type="Script" id=1]
+
+[sub_resource type="Gradient" id=1]
+offsets = PoolRealArray( 0.328571, 0.75 )
+colors = PoolColorArray( 0.372549, 0.372549, 0.372549, 0, 0.898039, 0.898039, 0.898039, 0 )
+
+[sub_resource type="GradientTexture2D" id=2]
+gradient = SubResource( 1 )
+width = 2
+height = 2
+fill_from = Vector2( 1, 1 )
+
+[node name="default" type="Node2D"]
+script = ExtResource( 1 )
+preready_texture = SubResource( 2 )
+countdown_scale = 0.7
+rating_scale = 0.6
+note_scale = 0.9
+strum_scale = 0.9

@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/Voices.ogg-ce728e3a50dca3f60c5083754d68d9f7.oggstr"
+
+[deps]
+
+source_file="res://Assets/Songs/too-goofy/Voices.ogg"
+dest_files=[ "res://.import/Voices.ogg-ce728e3a50dca3f60c5083754d68d9f7.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

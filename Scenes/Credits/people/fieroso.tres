@@ -1,0 +1,15 @@
+[gd_resource type="Resource" load_steps=2 format=2]
+
+[ext_resource path="res://Scripts/CreditsMetadata.gd" type="Script" id=1]
+
+[resource]
+script = ExtResource( 1 )
+person_name = "Fieroso"
+roles = "Artist (made some Xag renders)"
+description = "Made some Xag renders
+
+me when i'm frighting in springfield at a friday night"
+icon_name = "fieroso"
+open_link_on_interact = true
+interact_link = "https://x.com/fieroso_lol"
+user_color = Color( 0.145098, 0.388235, 0.964706, 1 )

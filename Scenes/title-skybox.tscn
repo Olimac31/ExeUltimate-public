@@ -1,0 +1,47 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://Assets/Shaders/2dclouds.gdshader" type="Shader" id=1]
+
+[sub_resource type="Gradient" id=7]
+offsets = PoolRealArray( 0.0391061, 0.396648, 1 )
+colors = PoolColorArray( 0, 0.00201416, 0.128906, 1, 0, 0.175903, 0.511719, 1, 0, 0.601563, 1, 1 )
+
+[sub_resource type="GradientTexture2D" id=8]
+gradient = SubResource( 7 )
+fill_from = Vector2( 0.6, 0 )
+fill_to = Vector2( 0.5, 1 )
+
+[sub_resource type="OpenSimplexNoise" id=5]
+seed = 142
+octaves = 4
+period = 193.4
+persistence = 0.42
+lacunarity = 4.0
+
+[sub_resource type="NoiseTexture" id=6]
+seamless = true
+noise = SubResource( 5 )
+
+[sub_resource type="ShaderMaterial" id=1]
+shader = ExtResource( 1 )
+shader_param/density = 1.0
+shader_param/speed = Vector2( 0.03, 0.015 )
+shader_param/noise_texture = SubResource( 6 )
+
+[node name="skybox" type="CanvasLayer"]
+layer = -10
+scale = Vector2( 3, 3 )
+transform = Transform2D( 3, 0, 0, 3, 0, 0 )
+
+[node name="bg" type="TextureRect" parent="."]
+margin_right = 427.0
+margin_bottom = 240.0
+texture = SubResource( 8 )
+expand = true
+
+[node name="clouds" type="ColorRect" parent="."]
+modulate = Color( 1, 1, 1, 0.882353 )
+material = SubResource( 1 )
+margin_right = 427.0
+margin_bottom = 243.0
+color = Color( 5, 5, 5, 1 )

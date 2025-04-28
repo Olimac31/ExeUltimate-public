@@ -1,0 +1,68 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Assets/Fonts/cutscene-font.tres" type="DynamicFont" id=1]
+[ext_resource path="res://Scenes/Cutscenes/custom-cutscene-text.gd" type="Script" id=2]
+[ext_resource path="res://Assets/Images/pixelart/Sprites/cutscene-continue.png" type="Texture" id=3]
+
+[node name="custom-cutscene-text" type="CanvasLayer"]
+layer = 6
+script = ExtResource( 2 )
+
+[node name="name-back" type="RichTextLabel" parent="."]
+modulate = Color( 1, 1, 1, 0.25098 )
+margin_left = 259.0
+margin_top = 515.0
+margin_right = 512.0
+margin_bottom = 555.0
+custom_fonts/normal_font = ExtResource( 1 )
+bbcode_enabled = true
+bbcode_text = "Xag:"
+text = "Xag:"
+scroll_active = false
+
+[node name="name-front" type="RichTextLabel" parent="."]
+margin_left = 256.0
+margin_top = 512.0
+margin_right = 512.0
+margin_bottom = 552.0
+custom_fonts/normal_font = ExtResource( 1 )
+bbcode_enabled = true
+bbcode_text = "Xag:"
+text = "Xag:"
+scroll_active = false
+
+[node name="text-back" type="RichTextLabel" parent="."]
+modulate = Color( 1, 1, 1, 0.25098 )
+margin_left = 259.0
+margin_top = 555.0
+margin_right = 1027.0
+margin_bottom = 707.0
+custom_fonts/normal_font = ExtResource( 1 )
+bbcode_enabled = true
+bbcode_text = "Woooow look at this awesome and epic sample text that I just wrote to test how the custom text writer looks!!!"
+text = "Woooow look at this awesome and epic sample text that I just wrote to test how the custom text writer looks!!!"
+scroll_active = false
+
+[node name="text-front" type="RichTextLabel" parent="."]
+margin_left = 256.0
+margin_top = 552.0
+margin_right = 1024.0
+margin_bottom = 704.0
+custom_fonts/normal_font = ExtResource( 1 )
+bbcode_enabled = true
+bbcode_text = "Woooow look at this awesome and epic sample text that I just wrote to test how the custom text writer looks!!!"
+text = "Woooow look at this awesome and epic sample text that I just wrote to test how the custom text writer looks!!!"
+scroll_active = false
+
+[node name="CanvasModulate" type="CanvasModulate" parent="."]
+
+[node name="continue" type="Sprite" parent="."]
+position = Vector2( 640, 664 )
+scale = Vector2( 3, 3 )
+texture = ExtResource( 3 )
+
+[node name="continue2" type="Sprite" parent="continue"]
+modulate = Color( 1, 1, 1, 0.25098 )
+position = Vector2( 1, 1 )
+z_index = -1
+texture = ExtResource( 3 )

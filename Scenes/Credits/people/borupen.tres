@@ -1,0 +1,20 @@
+[gd_resource type="Resource" load_steps=2 format=2]
+
+[ext_resource path="res://Scripts/CreditsMetadata.gd" type="Script" id=1]
+
+[resource]
+script = ExtResource( 1 )
+person_name = "Borupen"
+roles = "Concept Artist, Animator"
+description = "sometimes i forget i work on this mod
+
+im boru im a gator and artist and animator and sometime charter and sometimes composer and i animated [color=red]Xag[/color] and the characters from the chasing sections from [color=red]Too Goofy![/color] yay! this demo is funny i liked it 
+
+shoutout to LHUGUENY he made story of undertale and it changed my whole life   and shoutout to the sougang too 
+
+
+[shake level=7][color=red]adobe animate[/color] is the worst program ever concieved to humanity[/shake]"
+icon_name = "boru"
+open_link_on_interact = true
+interact_link = "https://x.com/BoruIDK"
+user_color = Color( 0.501961, 0.870588, 0.0313726, 1 )

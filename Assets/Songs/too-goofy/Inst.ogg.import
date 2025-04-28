@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/Inst.ogg-b61d8d07aa31457d2bf77058c8dbc300.oggstr"
+
+[deps]
+
+source_file="res://Assets/Songs/too-goofy/Inst.ogg"
+dest_files=[ "res://.import/Inst.ogg-b61d8d07aa31457d2bf77058c8dbc300.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

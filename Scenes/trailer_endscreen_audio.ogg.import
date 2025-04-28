@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/trailer_endscreen_audio.ogg-d3595e8d33c7e443febacff3691817f6.oggstr"
+
+[deps]
+
+source_file="res://Scenes/trailer_endscreen_audio.ogg"
+dest_files=[ "res://.import/trailer_endscreen_audio.ogg-d3595e8d33c7e443febacff3691817f6.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0

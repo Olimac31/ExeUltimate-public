@@ -1,0 +1,204 @@
+[gd_scene load_steps=9 format=2]
+
+[ext_resource path="res://Assets/Images/UI/160x160-button.png" type="Texture" id=1]
+[ext_resource path="res://Assets/Images/UI/160x160-button-pressed.png" type="Texture" id=2]
+[ext_resource path="res://Assets/Images/UI/224x224-button.png" type="Texture" id=3]
+[ext_resource path="res://Assets/Images/UI/224x224-button-pressed.png" type="Texture" id=4]
+[ext_resource path="res://Assets/Fonts/font_big.tres" type="DynamicFont" id=5]
+[ext_resource path="res://Assets/Images/UI/320x720-area.png" type="Texture" id=6]
+[ext_resource path="res://Assets/Images/UI/320x720-area-pressed.png" type="Texture" id=7]
+[ext_resource path="res://Scripts/Autoload/TouchControls.gd" type="Script" id=8]
+
+[node name="Node2D" type="Node2D"]
+pause_mode = 2
+script = ExtResource( 8 )
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+layer = 102
+
+[node name="global_buttons" type="Node2D" parent="CanvasLayer"]
+modulate = Color( 0.746094, 0.875031, 1, 0.501961 )
+
+[node name="touchSettings" type="TouchScreenButton" parent="CanvasLayer/global_buttons"]
+position = Vector2( 632, 16 )
+scale = Vector2( 0.5, 0.35 )
+normal = ExtResource( 1 )
+pressed = ExtResource( 2 )
+
+[node name="Label" type="Label" parent="CanvasLayer/global_buttons/touchSettings"]
+margin_left = 9.99988
+margin_top = 45.7143
+margin_right = 151.0
+margin_bottom = 116.714
+custom_fonts/font = ExtResource( 5 )
+text = "<->"
+align = 1
+
+[node name="touchHide" type="TouchScreenButton" parent="CanvasLayer/global_buttons"]
+position = Vector2( 1160, 16 )
+scale = Vector2( 0.5, 0.35 )
+normal = ExtResource( 1 )
+pressed = ExtResource( 2 )
+
+[node name="Label" type="Label" parent="CanvasLayer/global_buttons/touchHide"]
+margin_left = 9.99988
+margin_top = 45.7143
+margin_right = 151.0
+margin_bottom = 116.714
+custom_fonts/font = ExtResource( 5 )
+text = "(O)"
+align = 1
+
+[node name="touchCancel" type="TouchScreenButton" parent="CanvasLayer/global_buttons"]
+position = Vector2( 32, 32 )
+scale = Vector2( 0.5, 0.5 )
+normal = ExtResource( 1 )
+pressed = ExtResource( 2 )
+action = "ui_back"
+
+[node name="Label" type="Label" parent="CanvasLayer/global_buttons/touchCancel"]
+margin_left = 50.0
+margin_top = 40.0
+margin_right = 97.0
+margin_bottom = 111.0
+custom_fonts/font = ExtResource( 5 )
+text = "X"
+
+[node name="menu_buttons" type="Node2D" parent="CanvasLayer"]
+modulate = Color( 1, 1, 1, 0.501961 )
+
+[node name="menu_yn" type="Node2D" parent="CanvasLayer/menu_buttons"]
+position = Vector2( 272, 136 )
+scale = Vector2( 0.8, 0.8 )
+
+[node name="touchConfirm" type="TouchScreenButton" parent="CanvasLayer/menu_buttons/menu_yn"]
+position = Vector2( 920, 410 )
+scale = Vector2( 0.8, 0.8 )
+normal = ExtResource( 3 )
+pressed = ExtResource( 4 )
+action = "ui_accept"
+
+[node name="Label" type="Label" parent="CanvasLayer/menu_buttons/menu_yn/touchConfirm"]
+margin_left = 70.0
+margin_top = 70.0
+margin_right = 164.0
+margin_bottom = 141.0
+custom_fonts/font = ExtResource( 5 )
+text = "OK"
+
+[node name="menu_directionals" type="Node2D" parent="CanvasLayer/menu_buttons"]
+position = Vector2( -32, 168 )
+scale = Vector2( 0.8, 0.8 )
+
+[node name="touchUp" type="TouchScreenButton" parent="CanvasLayer/menu_buttons/menu_directionals"]
+position = Vector2( 224, 264 )
+scale = Vector2( 0.8, 0.8 )
+normal = ExtResource( 1 )
+pressed = ExtResource( 2 )
+passby_press = true
+action = "ui_up"
+
+[node name="Label2" type="Label" parent="CanvasLayer/menu_buttons/menu_directionals/touchUp"]
+margin_left = 40.0
+margin_top = 130.0
+margin_right = 134.0
+margin_bottom = 201.0
+rect_rotation = -90.0
+custom_fonts/font = ExtResource( 5 )
+text = ">"
+align = 1
+
+[node name="touchDown" type="TouchScreenButton" parent="CanvasLayer/menu_buttons/menu_directionals"]
+position = Vector2( 224, 520 )
+scale = Vector2( 0.8, 0.8 )
+normal = ExtResource( 1 )
+pressed = ExtResource( 2 )
+passby_press = true
+action = "ui_down"
+
+[node name="Label3" type="Label" parent="CanvasLayer/menu_buttons/menu_directionals/touchDown"]
+margin_left = 110.0
+margin_top = 40.0001
+margin_right = 204.0
+margin_bottom = 111.0
+rect_rotation = 90.0
+custom_fonts/font = ExtResource( 5 )
+text = ">"
+align = 1
+
+[node name="touchLeft" type="TouchScreenButton" parent="CanvasLayer/menu_buttons/menu_directionals"]
+position = Vector2( 96, 392 )
+scale = Vector2( 0.8, 0.8 )
+normal = ExtResource( 1 )
+pressed = ExtResource( 2 )
+passby_press = true
+action = "ui_left"
+
+[node name="Label4" type="Label" parent="CanvasLayer/menu_buttons/menu_directionals/touchLeft"]
+margin_left = 30.0
+margin_top = 40.0001
+margin_right = 124.0
+margin_bottom = 111.0
+custom_fonts/font = ExtResource( 5 )
+text = "<"
+align = 1
+
+[node name="touchRight" type="TouchScreenButton" parent="CanvasLayer/menu_buttons/menu_directionals"]
+position = Vector2( 352, 392 )
+scale = Vector2( 0.8, 0.8 )
+normal = ExtResource( 1 )
+pressed = ExtResource( 2 )
+passby_press = true
+action = "ui_right"
+
+[node name="Label5" type="Label" parent="CanvasLayer/menu_buttons/menu_directionals/touchRight"]
+margin_left = 29.9999
+margin_top = 40.0001
+margin_right = 124.0
+margin_bottom = 111.0
+custom_fonts/font = ExtResource( 5 )
+text = ">"
+align = 1
+
+[node name="gameplay_buttons" type="Node2D" parent="CanvasLayer"]
+visible = false
+position = Vector2( 0, 72 )
+scale = Vector2( 1, 0.9 )
+
+[node name="touch0" type="TouchScreenButton" parent="CanvasLayer/gameplay_buttons"]
+modulate = Color( 0.784314, 0.329412, 0.992157, 1 )
+normal = ExtResource( 6 )
+pressed = ExtResource( 7 )
+passby_press = true
+action = "gameplay_0"
+
+[node name="touch1" type="TouchScreenButton" parent="CanvasLayer/gameplay_buttons"]
+modulate = Color( 0.309804, 0.792157, 0.968627, 1 )
+position = Vector2( 320, 0 )
+normal = ExtResource( 6 )
+pressed = ExtResource( 7 )
+passby_press = true
+action = "gameplay_1"
+
+[node name="touch2" type="TouchScreenButton" parent="CanvasLayer/gameplay_buttons"]
+modulate = Color( 0.435294, 0.980392, 0.243137, 1 )
+position = Vector2( 640, 0 )
+normal = ExtResource( 6 )
+pressed = ExtResource( 7 )
+passby_press = true
+action = "gameplay_2"
+
+[node name="touch3" type="TouchScreenButton" parent="CanvasLayer/gameplay_buttons"]
+modulate = Color( 1, 0.254902, 0.254902, 1 )
+position = Vector2( 960, 0 )
+normal = ExtResource( 6 )
+pressed = ExtResource( 7 )
+passby_press = true
+action = "gameplay_3"
+
+[connection signal="pressed" from="CanvasLayer/global_buttons/touchSettings" to="." method="_on_touchSettings_pressed"]
+[connection signal="pressed" from="CanvasLayer/global_buttons/touchHide" to="." method="_on_touchHide_pressed"]
+[connection signal="pressed" from="CanvasLayer/global_buttons/touchCancel" to="." method="_on_touchCancel_pressed"]
+[connection signal="released" from="CanvasLayer/global_buttons/touchCancel" to="." method="_on_touchCancel_released"]
+[connection signal="pressed" from="CanvasLayer/menu_buttons/menu_yn/touchConfirm" to="." method="_on_touchConfirm_pressed"]
+[connection signal="released" from="CanvasLayer/menu_buttons/menu_yn/touchConfirm" to="." method="_on_touchConfirm_released"]

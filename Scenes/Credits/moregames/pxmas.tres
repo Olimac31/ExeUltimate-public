@@ -1,0 +1,15 @@
+[gd_resource type="Resource" load_steps=2 format=2]
+
+[ext_resource path="res://Scripts/MoreGamesMetadata.gd" type="Script" id=1]
+
+[resource]
+script = ExtResource( 1 )
+game_name = "Vs. Purki Christmas"
+description = "Vs. Purki Christmas is a comedic FNF mod with an extensive platformer overworld!
+Check it out when it releases :)
+
+Also borrowed code from here lol
+- Olimac31"
+icon_name = "pxmas"
+interact_link = "https://x.com/PurkiChristmas"
+game_color = Color( 0.960784, 0.168627, 0.317647, 1 )

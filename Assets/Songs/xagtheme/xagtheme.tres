@@ -1,0 +1,13 @@
+[gd_resource type="Resource" load_steps=2 format=2]
+
+[ext_resource path="res://Scripts/SongMetadata.gd" type="Script" id=1]
+
+[resource]
+script = ExtResource( 1 )
+song_filename = "xagtheme"
+song_name = "Roll With It"
+song_author = "Olimac31"
+is_unlocked = false
+song_color = Color( 1, 0.0431373, 0.290196, 1 )
+song_type = "Extra"
+song_link = "https://www.youtube.com/watch?v=KiR6lCsBLCw"

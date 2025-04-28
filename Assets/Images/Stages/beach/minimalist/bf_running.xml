@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TextureAtlas imagePath="bf_running.png">
+	<!-- Created with Adobe Animate version 22.0.3.179 -->
+	<!-- http://www.adobe.com/products/animate.html -->
+	<SubTexture name="BFShad0000" x="30" y="30" width="191" height="245" frameX="-11" frameY="-6" frameWidth="204" frameHeight="285"/>
+	<SubTexture name="BFShad0001" x="30" y="30" width="191" height="245" frameX="-11" frameY="-6" frameWidth="204" frameHeight="285"/>
+	<SubTexture name="BFShad0002" x="30" y="30" width="191" height="245" frameX="-11" frameY="-6" frameWidth="204" frameHeight="285"/>
+	<SubTexture name="BFShad0003" x="30" y="30" width="191" height="245" frameX="-11" frameY="-6" frameWidth="204" frameHeight="285"/>
+	<SubTexture name="BFShad0004" x="222" y="30" width="191" height="249" frameX="-7" frameY="0" frameWidth="204" frameHeight="285"/>
+	<SubTexture name="BFShad0005" x="222" y="30" width="191" height="249" frameX="-7" frameY="0" frameWidth="204" frameHeight="285"/>
+	<SubTexture name="BFShad0006" x="222" y="30" width="191" height="249" frameX="-7" frameY="0" frameWidth="204" frameHeight="285"/>
+	<SubTexture name="BFShad0007" x="222" y="30" width="191" height="249" frameX="-7" frameY="0" frameWidth="204" frameHeight="285"/>
+	<SubTexture name="BFShad0008" x="222" y="30" width="191" height="249" frameX="-7" frameY="0" frameWidth="204" frameHeight="285"/>
+	<SubTexture name="BFShad0009" x="414" y="30" width="166" height="258" frameX="0" frameY="-27" frameWidth="204" frameHeight="285"/>
+	<SubTexture name="BFShad0010" x="414" y="30" width="166" height="258" frameX="0" frameY="-27" frameWidth="204" frameHeight="285"/>
+	<SubTexture name="BFShad0011" x="414" y="30" width="166" height="258" frameX="0" frameY="-27" frameWidth="204" frameHeight="285"/>
+	<SubTexture name="BFShad0012" x="581" y="30" width="161" height="252" frameX="-6" frameY="-33" frameWidth="204" frameHeight="285"/>
+	<SubTexture name="BFShad0013" x="581" y="30" width="161" height="252" frameX="-6" frameY="-33" frameWidth="204" frameHeight="285"/>
+	<SubTexture name="BFShad0014" x="743" y="30" width="193" height="237" frameX="-11" frameY="-6" frameWidth="204" frameHeight="285"/>
+	<SubTexture name="BFShad0015" x="743" y="30" width="193" height="237" frameX="-11" frameY="-6" frameWidth="204" frameHeight="285"/>
+	<SubTexture name="BFShad0016" x="743" y="30" width="193" height="237" frameX="-11" frameY="-6" frameWidth="204" frameHeight="285"/>
+	<SubTexture name="BFShad0017" x="743" y="30" width="193" height="237" frameX="-11" frameY="-6" frameWidth="204" frameHeight="285"/>
+	<SubTexture name="BFShad0018" x="30" y="289" width="192" height="236" frameX="-8" frameY="-4" frameWidth="204" frameHeight="285"/>
+	<SubTexture name="BFShad0019" x="30" y="289" width="192" height="236" frameX="-8" frameY="-4" frameWidth="204" frameHeight="285"/>
+	<SubTexture name="BFShad0020" x="30" y="289" width="192" height="236" frameX="-8" frameY="-4" frameWidth="204" frameHeight="285"/>
+	<SubTexture name="BFShad0021" x="30" y="289" width="192" height="236" frameX="-8" frameY="-4" frameWidth="204" frameHeight="285"/>
+	<SubTexture name="BFShad0022" x="30" y="289" width="192" height="236" frameX="-8" frameY="-4" frameWidth="204" frameHeight="285"/>
+	<SubTexture name="BFShad0023" x="414" y="30" width="166" height="258" frameX="0" frameY="-27" frameWidth="204" frameHeight="285"/>
+	<SubTexture name="BFShad0024" x="414" y="30" width="166" height="258" frameX="0" frameY="-27" frameWidth="204" frameHeight="285"/>
+	<SubTexture name="BFShad0025" x="414" y="30" width="166" height="258" frameX="0" frameY="-27" frameWidth="204" frameHeight="285"/>
+	<SubTexture name="BFShad0026" x="223" y="289" width="161" height="252" frameX="-6" frameY="-33" frameWidth="204" frameHeight="285"/>
+	<SubTexture name="BFShad0027" x="223" y="289" width="161" height="252" frameX="-6" frameY="-33" frameWidth="204" frameHeight="285"/>
+</TextureAtlas>

@@ -1,0 +1,13 @@
+[gd_resource type="Resource" load_steps=2 format=2]
+
+[ext_resource path="res://Scripts/MoreGamesMetadata.gd" type="Script" id=1]
+
+[resource]
+script = ExtResource( 1 )
+game_name = "jerry run"
+description = "Hello play my game Jerry Run please I helped test Olimac’s chuggy game on my Mac please do a favor spare the few cents by playing Jerry Run hello please play Jerry Run please
+
+- indeednotfunny"
+icon_name = "jerryrun"
+interact_link = "https://gamejolt.com/games/jerryrun/925448"
+game_color = Color( 1, 0.607843, 0.231373, 1 )

@@ -1,0 +1,260 @@
+[gd_scene load_steps=14 format=2]
+
+[ext_resource path="res://Assets/Images/UI/minus-bg.png" type="Texture" id=1]
+[ext_resource path="res://Assets/Shaders/autoscroll-bg.gdshader" type="Shader" id=2]
+[ext_resource path="res://Assets/Shaders/vignette.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Scenes/manage-savedata.gd" type="Script" id=4]
+[ext_resource path="res://Assets/Images/UI/options menu box.png" type="Texture" id=5]
+[ext_resource path="res://Assets/Fonts/sonic-hud-font.tres" type="DynamicFont" id=6]
+
+[sub_resource type="ShaderMaterial" id=1]
+shader = ExtResource( 2 )
+shader_param/motion = Vector2( 8, 8 )
+shader_param/scale = 1.0
+shader_param/offset = Vector2( 0, 0 )
+
+[sub_resource type="Animation" id=2]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("ColorRect:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ) ]
+}
+
+[sub_resource type="Animation" id=3]
+resource_name = "loop"
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("ColorRect:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5, 1 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0.501961 ), Color( 1, 1, 1, 1 ) ]
+}
+
+[sub_resource type="Animation" id=7]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 640, 800 ) ]
+}
+
+[sub_resource type="Animation" id=6]
+resource_name = "deleted"
+length = 3.5
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.4, 2.7, 3 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.7, 2.7, 3, 3.2 ),
+"transitions": PoolRealArray( 0.353553, 1, 1.18921, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 640, 744 ), Vector2( 640, 672 ), Vector2( 640, 672 ), Vector2( 640, 700 ), Vector2( 640, 800 ) ]
+}
+
+[sub_resource type="Animation" id=4]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("UI-back:offset")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 0, 0 ) ]
+}
+
+[sub_resource type="Animation" id=5]
+resource_name = "enter"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/path = NodePath("UI-back:offset")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1.1 ),
+"transitions": PoolRealArray( 0.225313, 1 ),
+"update": 0,
+"values": [ Vector2( 0, 500 ), Vector2( 0, 0 ) ]
+}
+
+[node name="manage-savedata" type="Node2D"]
+script = ExtResource( 4 )
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+layer = -3
+
+[node name="minus-bg" type="TextureRect" parent="CanvasLayer"]
+modulate = Color( 0.105882, 0.12549, 0.388235, 1 )
+material = SubResource( 1 )
+margin_right = 320.0
+margin_bottom = 180.0
+rect_scale = Vector2( 4, 4 )
+texture = ExtResource( 1 )
+stretch_mode = 2
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="vignette" parent="." instance=ExtResource( 3 )]
+layer = -2
+
+[node name="UI-back" type="CanvasLayer" parent="."]
+layer = -1
+
+[node name="NinePatchRect" type="NinePatchRect" parent="UI-back"]
+margin_left = 384.0
+margin_top = 192.0
+margin_right = 512.0
+margin_bottom = 272.0
+rect_scale = Vector2( 4, 4 )
+texture = ExtResource( 5 )
+patch_margin_left = 2
+patch_margin_top = 2
+patch_margin_right = 2
+patch_margin_bottom = 2
+
+[node name="txt-title" type="RichTextLabel" parent="UI-back"]
+modulate = Color( 1, 0.878431, 0.0745098, 1 )
+margin_left = 448.0
+margin_top = 216.0
+margin_right = 832.0
+margin_bottom = 264.0
+custom_fonts/normal_font = ExtResource( 6 )
+bbcode_enabled = true
+bbcode_text = "[center]Save Data Management"
+text = "Save Data Management"
+
+[node name="select" type="Node2D" parent="UI-back"]
+position = Vector2( 408, 272 )
+
+[node name="ColorRect" type="ColorRect" parent="UI-back/select"]
+modulate = Color( 1, 1, 1, 0.733333 )
+margin_left = -8.0
+margin_top = -20.0
+margin_right = 464.0
+margin_bottom = 20.0
+color = Color( 0, 0.227451, 1, 1 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="UI-back/select"]
+autoplay = "loop"
+anims/RESET = SubResource( 2 )
+anims/loop = SubResource( 3 )
+
+[node name="txt-open" type="RichTextLabel" parent="UI-back"]
+margin_left = 408.0
+margin_top = 264.0
+margin_right = 792.0
+margin_bottom = 312.0
+custom_fonts/normal_font = ExtResource( 6 )
+bbcode_enabled = true
+bbcode_text = "OPEN SAVE DATA FOLDER"
+text = "OPEN SAVE DATA FOLDER"
+
+[node name="txt-delete" type="RichTextLabel" parent="UI-back"]
+margin_left = 408.0
+margin_top = 312.0
+margin_right = 888.0
+margin_bottom = 360.0
+custom_fonts/normal_font = ExtResource( 6 )
+bbcode_enabled = true
+bbcode_text = "[color=red]DELETE ALL SAVE DATA"
+text = "DELETE ALL SAVE DATA"
+
+[node name="txt-exit" type="RichTextLabel" parent="UI-back"]
+margin_left = 408.0
+margin_top = 456.0
+margin_right = 792.0
+margin_bottom = 504.0
+custom_fonts/normal_font = ExtResource( 6 )
+bbcode_enabled = true
+bbcode_text = "[color=silver]Return to Main Menu"
+text = "Return to Main Menu"
+
+[node name="deleted" type="Node2D" parent="UI-back"]
+modulate = Color( 1, 1, 1, 0 )
+position = Vector2( 640, 800 )
+
+[node name="txt-deleted" type="RichTextLabel" parent="UI-back/deleted"]
+margin_left = -232.0
+margin_top = -8.0
+margin_right = 248.0
+margin_bottom = 40.0
+rect_clip_content = false
+custom_fonts/normal_font = ExtResource( 6 )
+bbcode_enabled = true
+bbcode_text = "[center][color=aqua][wave]SAVE DATA SUCCESSFULLY DELETED"
+text = "SAVE DATA SUCCESSFULLY DELETED"
+
+[node name="delet-anims" type="AnimationPlayer" parent="UI-back/deleted"]
+anims/RESET = SubResource( 7 )
+anims/deleted = SubResource( 6 )
+
+[node name="options" type="Node2D" parent="."]
+
+[node name="open" type="Node2D" parent="options"]
+position = Vector2( 408, 274 )
+
+[node name="delete" type="Node2D" parent="options"]
+position = Vector2( 408, 322 )
+
+[node name="exit" type="Node2D" parent="options"]
+position = Vector2( 408, 466 )
+
+[node name="Tween" type="Tween" parent="."]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/RESET = SubResource( 4 )
+anims/enter = SubResource( 5 )

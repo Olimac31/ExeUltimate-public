@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/intro_ref.ogg-32ff53d4861321672491c74dc8218c5f.oggstr"
+
+[deps]
+
+source_file="res://Assets/Songs/too-goofy/intro_ref.ogg"
+dest_files=[ "res://.import/intro_ref.ogg-32ff53d4861321672491c74dc8218c5f.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0
